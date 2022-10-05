@@ -1,0 +1,123 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\input{../header.tex}
+
+\begin{document}
+
+\exerciseSet{1}{Oct 24, 2022}
+
+
+\aaa{. Harmonic functions.} \\
+A function $u:\Omega \to \R$ is called
+\emph{\bfseries harmonic} on the open domain $\Omega$, if it satisfies
+the following \emph{\bfseries mean-value property}:
+\[
+\forall\, x \in \Omega \ \forall \, r>0\text{ with }B_r(x)\Subset
+\Omega : \quad u(x) = \frac1{\omega_dr^{d-1}}\int_{y\in \pl B_r(x)} 
+u(y) \dd a(y).
+\]
+Note that the right-hand side is an average over the sphere $\pl
+B_r(x)$ as $\omega_d$ denotes the $(d{-}1)$-dimensional surface
+measure of the sphere $\bbS^{d-1}\subset \R^d$.  We want to show that
+a function $u \in \rmC^2(\Omega)$ is harmonic if and only if $\Delta
+u(x)=0$ for all $x \in \Omega$.\\
+
+(a) For fixed $x\in \Omega$ let $R(x)=\mathrm{dist}(x , \R^d\setminus
+\Omega)$ and define
+\[
+\Phi(r)= \frac1{\omega_dr^{d-1}}\int_{y\in \pl B_r(x)} 
+u(y) \dd a(y) .
+\]
+Transform the integral via $y=x+rz$ with $z \in \bbS^{d-1}$, and show
+that $u\in \rmC(\Omega)$ implies  
+that $\Phi:{[0,R(x)[}\to \R$ is continuous with $\Phi(0)=u(x)$.\\  
+%
+%\LSG{We find $\Phi(r) = \frac1{\omega_d}\int_{\bbS^{d-1}} u(x{+}rz)
+%    \dd a(z)$. Uniform continuity of $u$ implies continuity of $\Phi$.}
+
+(b) Show that a harmonic function $u\in \rmC^2(\Omega)$ satisfies
+$\Delta u(x)=0$ for all $x \in \Omega$.\\ (Hint: Expand $u$ in a Taylor
+series at $x$ via $u(x{+}rz)=u(x)+ r\nabla u(x)\cdot z + \frac12r^2
+z\cdot \nabla^2 u(x)z + o(r^2)$ for $r\to 0$.)\\   
+%
+%\LSG{For $r>0$ we insert the Taylor expansion into 
+%\[
+%0=\frac1{r^2}\Big(\omega_d u(x)-\int_{\bbS} u(x{+}rz)\dd a \Big) = 
+%\frac{\omega_d}{r^2} \int_{\bbS} \!\! \big(r\nabla u(x){\otimes} z +
+%\frac{r^2}2 \nabla^2u(x) {:} (z{\odot} z) +o(r^2)\big) \dd a \ \to \
+%\omega_d \nabla^2 u(x) {:} \! \int_\bbS \!\! z{\odot} z \dd a, 
+%\]
+%where we use the uniformity opf $o(r^2)$ w.r.t.\ $z \in \bbS$ and that
+%$\int_\bbS z \dd a =0$ as each $z_i$ is odd. Finally we use 
+%$\int_\bbS z{\otimes} z \dd a(z) = \gamma_d I \in \R^{d\ti d}$. Hence
+%$\Delta u(x)= \nabla^2 u(x) : I =0$ follows. }
+
+(c) For $u\in \rmC^2(\Omega)$ satisfying $\Delta u(x)=0$ for
+all $x \in \Omega$ show that $u$ is harmonic. \\
+(Hint: Show that $\Phi'(r)=0$ by differentiating the integral over
+$\bbS^{d-1}$ obtained in (a) and show $\omega_d r^{d-1} \Phi'(r) =
+\int_{\pl B_r(x)} \nabla u(y) \cdot \nu(y) \dd a(y) $.)
+
+
+\aaa{. Expansion in eigenfunctions.}\\ 
+In the interval $\Omega= \left]0,\pi \right[$, 
+we consider the wave equation $u_{tt}=\Delta
+ u=u_{xx}$ with {\scshape Dirichlet} boundary conditions
+ $u(t,\cdot)|_{\pl\Omega}=0$.\\
+
+(a) Determine a complete orthonormal system $ \set{\Phi_j }{j\in \N}$
+in $\rmL^2(\Omega)$, such that
+$u(t,x)=\cos(\omega_j t)\Phi_j(x)$ provides a solution to the wave
+equation for suitable $\omega_j$.\\
+
+(b) Show via superposition that for $u_0 \in \rmH^2(\left] 0, \pi\right[) \cap \rmH_0^1(\left] 0,\pi \right[)$
+and $v_0 \in \rmH_0^1(\left] 0,\pi\right[)$ there exists a unique solution.\\
+
+\aaa{. Fourier transformation for the wave equation.}\\
+Consider the equation $u_{tt} = \Delta u$ in $\R^d$ with initial condition $u(0,\cdot) = u_0$ and $u_t(0,\cdot) = v_0$.
+Let $u_0 \in \rmH^{k+1}(\R^d), v_0\in \rmH^k(\R^d)$. We want to show via Fourier transformation, that there is a solution 
+of the wave equation
+whicht satisfies \[u\in \rmC(\R; \rmH^{k+1}(\R^d)) \cap \rmC^1(\R;\rmH^k(\R^d)) \cap \ldots \cap \rmC^{k+1}(\R;\rmH^0(\R^d)),
+\]
+where $\rmH^0(\R^d)=\rmL^2(\Omega)$. Proceed as follows:
+
+(a) Establish an explicit formula for the Fourier transform 
+$(t,\xi)\mapsto\hat{u}(t,\xi)$ of a solution $u$ to the wave equation.\\
+
+(b) Given that $u(t,\cdot) \in \rmH^k(\R^d)$ if and only if $\xi\mapsto
+(1{+}\vert \xi\vert^2)^{k/2}\hat{u}(t,\xi) \in \rmL^2(\R^d)$, 
+show the above claimed regularity. (Hint: One does not have to compute the inverse Fourier transform!)
+
+\aaa{. Solution of the wave equation from the heat equation.}\\
+Consider the homogeneous wave equation 
+$u_{tt}=\Delta u$ in $\R^3$ with initial conditions
+$u(0,x)= u_0(x)$ and $u_t(0,x) =  0$.
+We assume $u_0\in\rmC^3(\R^3)$.
+ We want to establish the solution formula
+ \[
+u(t,x) = \frac{\pl}{\pl t}\Big(\frac{1}{4\pi t}\int_{|x{-}y|=t}u_0(y)\dd \rma_y\Big).
+ \]
+Proceed via the following steps:
+
+(i) Suppose that $u:\left[0,\infty\right[\times \R^3\to \R$ is a bounded, smooth solution
+to the wave equation. Letting $\tilde u$ denote the even extension
+of $u$ to $\R\times \R^3$, define the function
+\[
+v(t,x) = \frac{1}{\sqrt{4\pi t}}\int_{-\infty}^\infty
+\tilde u(s,x)\ee^{-s^2/(4t)}\dd s
+\] for $x\in \R^3$ and $t>0$. Show that $v$ solves the 
+homogeneous \underline{heat equation} in $\R^3$.
+
+(ii) Argue that $v$ can be represented via the \textsc{Heat Kernel}
+$H_3(t,x) = (4\pi t)^{-3/2}\exp(-|x|^2/(4t))$.
+
+(iii) Use the following result to conclude that $u$ 
+is given by the representation formula above:
+The \textsc{Laplace transform} of $f:\left[0,\infty\right[\to \C$
+is given as $(\calL f)(z) 
+= \int_0^\infty f(t)\ee^{-zt}\dd t$ for $z\in \C$. If $f:\left[0,\infty\right[\to \C$ and
+$g:\left[0,\infty\right[\to\C$ are continuous and $(\calL f)(s) =(\calL g)(s)$
+for all $s\in \R$ then $f(t)=g(t)$ for all $t\in[0,\infty[$.
+
+\end{document}

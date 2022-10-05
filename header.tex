@@ -1,0 +1,45 @@
+\usepackage[width=16cm,height=10cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{epsfig,amsmath,amsfonts,amssymb,latexsym,mathtools}
+\usepackage{bef_alex,color,relsize,tikz}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+
+
+
+\setlength\headheight{2.2cm}
+
+\rhead{\includegraphics[height=2cm]{wiaslogo-2010.pdf}}
+\chead{\begin{minipage}[b]{8cm}
+    \flushleft \small
+    \textsc{Calculus of Variations}\\
+    Winter term 2022/23\\
+    Dr. Thomas Eiter\\
+    Dr. Matthias Liero\\
+    \end{minipage}
+}
+
+\lhead{\includegraphics[height=2cm]{husiegel_bw_op.png}}
+
+\cfoot{\thepage}
+
+\setlength\parindent{0pt}
+
+\newcounter{AUFGABE}
+\def\aaa#1{\stepcounter{AUFGABE}\bigskip\par\noindent{\textbf{Exercise
+      \arabic{AUFGABE}#1}}}
+\def\LSG#1{\par{\footnotesize \color{blue}\textbf{Solution:} #1\color{black}}}
+
+
+\newcommand{\exerciseSet}[2]{
+\vspace{1.5em}
+\begin{center}
+\Large{\textsc{Exercise Set #1}}\\
+\end{center}
+\begin{center}
+	\small{due on #2}\\
+\end{center}
+\thispagestyle{fancy}
+
+}
