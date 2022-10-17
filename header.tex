@@ -1,4 +1,4 @@
-\usepackage[width=16cm,height=10cm]{geometry}
+\usepackage[width=16cm,height=22cm]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage{microtype}
 \usepackage{epsfig,amsmath,amsfonts,amssymb,latexsym,mathtools}
@@ -8,37 +8,43 @@
 
 
 
-\setlength\headheight{2.2cm}
+\setlength\headheight{2.4cm}
 
-\rhead{\includegraphics[height=2cm]{wiaslogo-2010.pdf}}
-\chead{\begin{minipage}[b]{8cm}
-    \flushleft \small
+\rhead{\includegraphics[height=1.8cm]{wiaslogo-2010.pdf}}
+\chead{
+    \hspace{1.5cm}
+    \begin{minipage}[b]{8cm}
+    \flushleft 
+    \small
     \textsc{Calculus of Variations}\\
     Winter term 2022/23\\
-    Dr. Thomas Eiter\\
-    Dr. Matthias Liero\\
+    Dr.~Thomas Eiter \&
+    Dr.~Matthias Liero\\
+    Melanie Koser \&
+    Anastasija Pe\v{s}i\'{c}
     \end{minipage}
 }
 
-\lhead{\includegraphics[height=2cm]{husiegel_bw_op.png}}
+\lhead{\includegraphics[height=1.8cm]{husiegel_bw_op.png}}
 
 \cfoot{\thepage}
 
 \setlength\parindent{0pt}
 
 \newcounter{AUFGABE}
-\def\aaa#1{\stepcounter{AUFGABE}\bigskip\par\noindent{\textbf{Exercise
-      \arabic{AUFGABE}#1}}}
+\newcommand{\aaa}[1]{\stepcounter{AUFGABE}
+\bigskip\par\noindent{\textbf{Exercise
+      \arabic{AUFGABE}.~#1}}}
 \def\LSG#1{\par{\footnotesize \color{blue}\textbf{Solution:} #1\color{black}}}
 
 
 \newcommand{\exerciseSet}[2]{
 \vspace{1.5em}
 \begin{center}
-\Large{\textsc{Exercise Set #1}}\\
+\Large{\textsc{Exercise Sheet #1}}\\
 \end{center}
 \begin{center}
-	\small{due on #2}\\
+	\small{discussed on #2}\\
 \end{center}
 \thispagestyle{fancy}
 
