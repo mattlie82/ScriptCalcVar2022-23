@@ -1,0 +1,80 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\input{../header.tex}
+
+\begin{document}
+
+\exerciseSet{2}{October 31, 2022}
+
+\setcounter{AUFGABE}{3}
+
+\aaa{Example without minimizers.}
+Consider the functional
+\[
+I\colon\ell^2\to\R,
+\quad 
+x\mapsto (1-\|x\|_{\ell^2}^2)^2
++\sum_{k=1}^\infty \frac{1}{k}x_k^2
+\]
+on the Hilbert space
+$\ell^2\coloneqq\set{(x_k)_{k\in\N}\subset\R}{\sum_{k=1}^\infty x_k^2<\infty}$
+equipped with the norm 
+$\|x\|^2_{\ell^2}\coloneqq\sum_{k=1}^\infty x_k^2$.
+\begin{enumerate}
+    \item [(a)]
+    Show that $I$ is continuous.
+    \item [(b)]
+    Show that $I(x)>0$ for all $x\in\ell^2$.
+    \item [(c)]
+    Show that $I$ has no minimizers by showing that $\inf I(x)=0$.
+    For this, construct an infimizing sequence,
+    that is, a sequence $(x^{(n)})\subset \ell^2$ such that
+    $I(x^{(n)})\to 0$ as $n\to\infty$.
+\end{enumerate}
+
+\aaa{Linear elasticity.}
+Let $\Omega\subset\R^d$, $d\geq 1$, and $u_0, f\in C^{0}(\Omega;\R^d)$, 
+$0\leq\mu\in C^{0}(\Omega)$.
+Consider the functional 
+\[
+I\colon 
+\set{v\in C^1(\overline{\Omega};\R^d)}{v|_{\partial\Omega}=u_0|_{\partial\Omega}}
+\to\R,
+\quad
+I(u)=\frac{1}{2}\int_\Omega\mu(x) |e(u)(x)|^2 - f(x)\cdot u(x)\dd x,
+\]
+where $e(u)\coloneqq \frac{1}{2}( \nabla u + \nabla u^\top)$.
+Compute the Euler-Lagrange equations for the corresponding minimization problem,
+and determine the second variation of $I$.
+
+\aaa{Fundamental lemma of calculus of variations.}
+Let $\Omega\subset\R^d$, $d\geq 1$, be open.
+Prove the following variants of the fundamental lemma of calculus of variations:
+\begin{enumerate}
+    \item [(a)]
+    If $a\in C^0(\Omega)$
+    satisfies
+    \[
+    \forall \psi\in
+    C_c^\infty(\Omega):
+    \qquad
+    \int_\Omega a(x)\psi(x)\dd x=0,
+    \]
+    then $a=0$.
+    \item[(b)]
+    If $a\in C^0(\overline{\Omega})$
+    and $b\in C^0(\partial\Omega)$
+    satisfy
+    \[
+    \forall \psi\in
+    C^\infty(\overline{\Omega}):
+    \qquad
+    \int_\Omega a(x)\psi(x)\dd x
+    +\int_{\partial\Omega} b(x)\psi(x)\dd x=0,
+    \]
+    then $a=0$ and $b=0$.
+\end{enumerate}
+
+
+\end{document}

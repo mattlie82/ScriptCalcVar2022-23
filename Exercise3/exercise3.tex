@@ -1,0 +1,106 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\input{../header.tex}
+
+\begin{document}
+
+\exerciseSet{3}{November 7, 2022}
+
+\setcounter{AUFGABE}{6}
+
+\aaa{Local convexity estimate.}
+Let $X$ be a Banach space and let
+$I:X\to\R$ be convex, i.e.
+\[
+I\big((1{-}\lambda)u_0 + \lambda u_1\big)\leq (1{-}\lambda)I(u_0)+ \lambda I(u_1)
+\]
+for all $u_0,u_1\in X$ and $\lambda\in(0,1)$.
+Conclude: Every critical  point $u_\ast$ is a minimizer of $I$.
+\textit{Hint:} First show 
+$I(v)\geq I(u)+ \mathrm{D}I(u)[v{-}u]$
+if $\mathrm{D}I(u)[v{-}u]$ exists.
+
+
+\aaa{Noether's theorem for rotationally invariant systems.} The
+density $f\in \rmC^2([\alpha,\beta]\times\R^m\times\R^m;\R)$ with
+$m\geq 2$ defines
+the functional  $I(u)=\int_{\alpha}^{\beta} f(t,u(t),\dot{u}(t))\dd t$.
+For the rotation matrix  $R_{\varphi}\in\R^{m\times{}m}$ with 
+\[
+R_{\varphi}(y_1,y_2,y_3,...,y_m)^\top= ( \cos\varphi \,y_1 -\sin\varphi\, y_2,
+\sin\varphi\, y_1 + \cos\varphi\, y_2,y_3,..., y_m)^\top, \  \varphi\in
+\R,\ y\in \R^m,
+\]
+the density $f$ satisfies the rotational symmetry 
+$f(t,R_\varphi{}u,R_\varphi{}A)=f(t,u,A)$ for all $t,u,A,\varphi$.
+
+\begin{itemize}
+\item[(a)]  Show that along solutions  $u:[\alpha,\beta]\to\R^m$ of the
+\textsc{Euler--Lagrange} equation we have conservation of the moment
+of momentum (Drehimpulserhaltung):
+\[
+\frac{\rmd }{\rmd t} \left[ u_1(t)\partial_{A_2}f(t,u(t),\dot{u}(t)) - 
+u_2(t)\partial_{A_1}f(t,u(t),\dot{u}(t))\right]= 0.
+\]
+\emph{Hint: Calculate first $\frac{\rmd}{\rmd \varphi} 
+f(t,R_\varphi{}u,R_\varphi{}A)\big|_{\varphi=0}$.}
+
+
+\item[(b)] Now consider $R_\varphi=\ee^{\varphi{}B}\in\R^{m\times{}m}$ for a
+  general $B\in\R^{m\times{}m}$ with $B=-B^\top$ and assume the
+  symmetry 
+$f(t,R_\varphi{}u,R_\varphi{}A)=f(t,u,A)$. Which quantity  $J(u,\dot{u})$
+is now conserved?
+\end{itemize}
+
+\aaa{Second variation.}
+Consider the functional $I:C^1(\overline\Omega;\R^m) \to \R$ with
+$I(u) = \int_\Omega f(x,u(x),\nabla u(x))\dd x$, where $f\in
+C^2(\ol\Omega\ti\R^m\ti \R^{m\ti d})$. 
+For $\gamma_1, \gamma_2 > 0$ assume the estimates
+\begin{align}
+  \label{a14.bed1}
+   \int_\Omega \rmD_A^2f(x,u_0(x),\nabla u_0(x)) [\nabla w]\dd
+   x & \geq \gamma_1\int_\Omega |\nabla w|^2\dd x ,\\ 
+  \label{a14.bed2}
+  \rmD^2I(u_0)[w] & \geq \gamma_2 \int_\Omega |w|^2 \dd x.
+\end{align}
+\begin{itemize}
+\item[(a)] Use $(\ref{a14.bed1})$ and find estimates for  $\pl_A\pl_uf$
+and $\pl^2_u f$ to obtain a constant $C^*$ such that 
+\[
+\rmD^2 I(u_0)[w] \geq \gamma_1/2 \int_\Omega |\nabla w|^2\dd x 
+- C^* |w|^2 \dd x \quad\text{ for all }w\in C^1(\overline\Omega;\R^m).
+\]
+\item[(b)] Combine \eqref{a14.bed2} and \eqref{a14.bed1} to find  $\gamma_3 >
+0$, such that 
+\[
+\rmD^2I(u_0)[w] \geq \gamma_3\int_\Omega |\nabla w|^2
+{+} |w|^2 \dd x \ \ \text{   for all } w\in C^1(\overline{\Omega};\R^m).
+\]
+\end{itemize}
+
+\aaa{Weak and strong local minimizers.} 
+Consider $M= \rmC^1([a,b];\R)$, functions 
+$g,h \in \rmC^2(\R;\R)$,  and the functional $I:M\to\R$ defined via
+\[
+ I(u) = \int_a^b g(u'(x)) + h(u(x))\dd x. 
+\]
+\begin{itemize}
+\item[(a)] Derive the associated \textsc{Euler--Lagrange} equation. Which
+conditions guarantee that solutions of the form $u(x)=u_* =
+\mathrm{const}$ exist?
+\item[(b)] Assume that $u(x) = u_* = \mathrm{const}$ is a critical point
+  of $I$. Show that the conditions 
+$h''(u_*) > 0$ and $g''(0) > 0$ are sufficient to imply that $I$ has a
+strict weak local minimizer in $u_*$.
+\item[(c)]
+Assume now that $g(A) \ge 0=g(0)$ for all $A \in
+  \R^{1\times{}1}$ and that $u^0$ is a local minimizer of $h$.
+Show that the constant function $\ol u:x\mapsto u^0$ is a strong local
+minimizer. What additional conditions imply that $\ol u$ is a global
+minimizer? 
+\end{itemize}
+
+\end{document}
