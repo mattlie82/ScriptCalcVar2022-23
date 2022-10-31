@@ -13,8 +13,9 @@
 %Local convexity estimate.}
 \begin{itemize}
 \item[(a)]
-Let $X$ be a Banach space and let
-$I:X\to\R$ be convex, i.e.
+Let $X$ be a Banach space and let $M\subset X$ be an affine linear space.
+Let
+$I:M\to\R$ be convex, i.e.
 \[
 I\big((1{-}\lambda)u_0 + \lambda u_1\big)\leq (1{-}\lambda)I(u_0)+ \lambda I(u_1)
 \]
@@ -25,22 +26,22 @@ $I(v)\geq I(u)+ \mathrm{D}I(u)[v{-}u]$
 if the first variation $\mathrm{D}I(u)[v{-}u]$ exists.
 \item[(b)]
 Let $\Omega\subset\R^d$ be a bounded smooth domain,
-and let $W\in\rmC^2(\R^d;\R)$ be strictly convex, i.e.
+and let $f\in\rmC^2(\R^d;\R)$ be strictly convex, i.e.
 \[
-W\big((1{-}\lambda)y_0 + \lambda y_1\big)< (1{-}\lambda)W(y_0)+ \lambda W(y_1)
+f\big((1{-}\lambda)y_0 + \lambda y_1\big)< (1{-}\lambda)f(y_0)+ \lambda f(y_1)
 \]
 for all $y_0\neq y_1\in \R^d$ and $\lambda\in(0,1)$.
 Suppose that $u_\ast\in\rmC^2(\overline{\Omega})$
 satisfies 
 \[
-\DIV\big(\partial_{A_1} W(\nabla u_\ast(x)),\dots,\partial_{A_d}W(\nabla u_\ast(x))\big)=0
+\DIV\big(\partial_{A_1} f(\nabla u_\ast(x)),\dots,\partial_{A_d}f(\nabla u_\ast(x))\big)=0
 \quad\text{in }\Omega.
 \]
 Show that $u_\ast$ is the unique minimizer of 
 \[
-I(v):=\int_\Omega W(\nabla v(x))\dd x
+I(v):=\int_\Omega f(\nabla v(x))\dd x
 \]
-in the set $\set{v\in \rmC^2(\Omega)}{v=u_\ast \text{ on } \partial\Omega}$.
+in the set $\set{v\in \rmC^2(\overline\Omega)}{v=u_\ast \text{ on } \partial\Omega}$.
 \item[(c)]
 Complete the argument of Example 2.9:
 Show that the straight line is the shortest connection between two points in the plane.
@@ -89,7 +90,7 @@ the motion the particle is determined by
 m \ddot u (t) = F(u(t)).
 \]
 Suppose that there is $\tilde V\in C^1(\R)$ with $\tilde V'(0)=0$ such that 
-$F=\nabla V$
+$F=-\nabla V$
 with $V(y)=\tilde V(|y|)$ for $y\in\R^3$.
 Show that $L(u)=m u\times \dot u$ is a conserved quantity
 of the evolution of $u$.
@@ -113,10 +114,10 @@ $I(u) = \int_\Omega f(x,u(x),\nabla u(x))\dd x$, where $f\in
 For $\gamma_1, \gamma_2 > 0$ assume the estimates
 \begin{align}
   \label{a14.bed1}
-   \int_\Omega \rmD_A^2f(x,u_0(x),\nabla u_0(x)) [\nabla w]\dd
-   x & \geq \gamma_1\int_\Omega |\nabla w|^2\dd x ,\\ 
+   \int_\Omega \rmD_A^2f(x,u_0(x),\nabla u_0(x)) [\nabla w(x)]\dd
+   x & \geq \gamma_1\int_\Omega |\nabla w(x)|^2\dd x ,\\ 
   \label{a14.bed2}
-  \rmD^2I(u_0)[w] & \geq \gamma_2 \int_\Omega |w|^2 \dd x.
+  \rmD^2I(u_0)[w] & \geq \gamma_2 \int_\Omega |w(x)|^2 \dd x.
 \end{align}
 \begin{itemize}
 \item[(a)] Use $(\ref{a14.bed1})$ and find estimates for  $\pl_A\pl_uf$
