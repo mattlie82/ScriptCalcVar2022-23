@@ -1,0 +1,36 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\input{../header.tex}
+
+\begin{document}
+
+\exerciseSet{4}{November 21, 2022}
+
+\setcounter{AUFGABE}{14}
+
+
+\aaa{Weierstraß criteria in 1D.}
+ 
+\aaa{Weak strong convergence.}
+
+\aaa{Uniform convexity.} 
+Let $X$ be a Banach space, and let $I\colon X\to\R_\infty$
+be uniformly convex, that is,
+there exists a strictly increasing function 
+$g\colon[0,\infty)\to\R$
+with $g(0)=0$
+such that
+for every $u\in X$ there is a linear continuous operator 
+$L_u\colon X\to\R$
+such that
+\[
+\forall v\in X: \quad I(v)\geq I(u)+L_u(v-u)+g(\|u-v\|). 
+\] 
+Show that $g'(0)=0$ if and only if 
+$I$ is Gateaux differentiable,
+that is, the first variation $\rmD I(u)[v]$ 
+exists for any $u,v\in X$.
+Moreover, show
+that in this case $L_u=\rmD I(u)$ for all $u\in X$.
+\end{document}

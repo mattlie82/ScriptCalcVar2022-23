@@ -9,6 +9,79 @@
 
 \setcounter{AUFGABE}{10}
 
-\aaa{...}
 
+\aaa{Necessary conditions.}
+Let 
+\[
+I(u):=\int_{-1}^1 \big (x^2(u'(x))^2-x^4u(x)^2+x^2 \big)
+\dd x.
+\]
+Determine the associated Euler--Lagrange equation
+together with
+the Neumann boundary conditions,
+the Legendre--Hadamard condition
+and the Weierstrass condition.
+
+\aaa{Weierstrass condition.}
+On $M=\{u\in \rmC^1([0,1])\,:\,u(0)=0, u(1)=1\}$ consider
+\[
+I(u) = \int_0^1\frac{1}{1+u'(x)^2}\dd x.
+\]
+\begin{itemize}
+\item [(a)] Show that $\inf_{u\in M} I(u) = 0$ 
+and convince yourself that this infimum is not attained.
+
+\item[(b)] Show that $u_*(x) = x$ satisfies the Euler--Lagrange equation and the Legendre--Hadamard
+condition.
+
+\item[(c)] Derive the Weierstrass condition and show that this rules out $u_*$ as a minimizer.
+\end{itemize}
+
+\aaa{Sequences of oscillating functions.}
+Consider a function $p\in \rmL^\infty(\R^d)$
+that is $1$-periodic in all directions,
+\textit{i.e.},
+\[
+p(y+k)=p(y) \quad \text{for all }y\in\R^d \text{ and all }k\in\Z^d,
+\]
+and define $p_\varepsilon(x)=p(\frac{1}{\varepsilon}x)$
+and $p_{\mathrm{av}}=\int_{[0,1]^d}p(y)\dd y$ (e.g. $p_\eps(x_1,x_2)=\sin(2\pi \tfrac{ x_1}{\eps})\cdot\cos(2\pi \tfrac{ x_2}{\eps})$).
+\begin{enumerate}
+    \item[(a)]
+    Show that for all functions $\phi\in\rmC_{\rmc}^\infty(\R^d)$
+    we have $\int_{\R^d}p_\varepsilon(x)\phi(x)\dd x\to \int_{\R^d}p_{\mathrm{av}}\phi\dd x$.
+    \\
+    \textit{Hint:} Approximate $\phi$ by suitable piecewise constant functions.
+    \item[(b)]
+    Show the weak$^\ast$ convergence 
+    \[
+    p_\varepsilon\xrightharpoonup{\ast} p \text{ in } \rmL^\infty(\R^d),
+    \qquad
+    \text{i.e.},
+    \quad \forall f\in\rmL^1(\R^d): \ 
+    \int_{\R^d}p_\varepsilon f\dd x \to \int_{\R^d}p_{\mathrm{av}}f\dd x.
+    \]
+\end{enumerate}
+
+\aaa{Jensen's inequality.} {\footnotesize  (Johan L.W.V. Jensen
+1859--1925)}\\
+Assume that $f:\R^m\to \R_\infty:=\R\cup\{\infty\}$ is convex. 
+
+\begin{itemize}
+\item[(a)] Consider $u_1,\dots, u_K\in\R^m$
+and $\theta_1,\dots,\theta_K\geq 0$ with $\theta_1+\cdots
+\theta_K=1$. Show
+\[
+f(\theta_1u_1{+}\cdots {+}\theta_Ku_K) \leq \sum_{k=1}^K \theta_k
+f(u_k).
+\]
+\item[(b)] For a piecewise constant function $u:\Omega \to \R^m$, $\Omega\subset\R^d$ measurable, show 
+\[
+f\Big(\frac1{\text{vol}(\Omega)} \int_\Omega u(x)\dd x \Big)  \leq 
+\frac1{\text{vol}(\Omega)} \int_\Omega f(u(x)) \dd x.
+\]
+\item[(c)] 
+Assume now additionally that $f:\R\to \R$ is continuous. Show that (b)
+also holds for $u\in \rmC^0(\Omega;\R^m)$ or $u\in\rmL^1(\Omega;\R^m)$.  
+\end{itemize}
 \end{document}
