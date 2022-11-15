@@ -5,14 +5,52 @@
 
 \begin{document}
 
-\exerciseSet{4}{November 21, 2022}
+\exerciseSet{5}{November 21, 2022}
 
 \setcounter{AUFGABE}{14}
 
 
-\aaa{Weierstraß criteria in 1D.}
- 
-\aaa{Weak strong convergence.}
+\aaa{Weierstraß condition in 1D.}
+In the one-dimensional case, the proof of the Weierstrass criterion is much simpler 
+(and even equivalent to the quasiconvexity condition):
+\\
+Show that if $u_*\in\rmC^1([\alpha,\beta];\R^m)$ is a strong local minimizer of $I(u)= \int_\alpha^\beta f(x,u(x),u'(x))\dd x$ with $f\in\rmC^1([\alpha,\beta]\times \R^m\times\R^m)$, 
+then for all $x\in[\alpha,\beta]$ and all $B\in\R^m$
+we have the inequality
+\[
+E(x,u_*(x),u_*'(x),B)\geq 0,
+\]
+where $E(x,u,A,B) = f(x,u,A+B) - f(x,u,A) - \pl_Af(x,u,A)\cdot B$.
+
+\emph{Hint:} First show the equivalence
+\[
+A\mapsto \wt f (A)\text{ is quasiconvex in }A_0\quad\Longleftrightarrow\quad
+\forall B\in \R^m:~\widetilde E(A_0,B) \geq 0
+\]
+for $\widetilde{f}\in\rmC^1(\R^m)$ and $A_0\in\R^m$,
+where $\widetilde E(A,B) = \widetilde{f}(A+B) -\widetilde{f}(A) -\pl_A\widetilde{f}(A)\cdot B.$
+\\
+For the ``$\Rightarrow$''-direction, consider $\delta>0$ and a function $v_\delta\in\mathrm{PC}^1_0([{-1},1];\R^m)$ 
+that satisfies $v'_\delta(x) = 0$ for
+$x\in [{-1},0[$, $v'_\delta(x) = B$ for $x\in[0,\delta[$, and 
+$v'_\delta(x) = -\delta/(1{-}\delta)B$ for $x\in[\delta,1]$.
+
+\aaa{Weak and strong convergence and continuity.}
+Consider $f\in\rmC^0(\ol\Omega\times\R^m)$ that
+satisfies the growth property
+\[
+\exists C>0,~p\in[1,\infty[,~h\in\rmL^1(\Omega)~\forall \, (x,u)\in\Omega\times\R^m:\quad |f(x,u)|\leq C(h(x)+|u|^p).
+\]
+and define the functional
+$I : \rmL^p(\Omega;\R^m) \to \R$; $I(u)= \int_\Omega f(x,u(x)) \dd x$.
+
+\begin{itemize}
+    \item[(a)] Show that $I$ is strongly continuous.
+    \item[(b)] Show that if $I$ is weakly continuous, then $f(x,\cdot)$ is affine, i.e., there exist $a \in \rmC^0(\ol\Omega)$ and $b \in \rmC^0 (\ol\Omega; \R^m )$ 
+    such that $f (x, u) = a(x) + b(x)\cdot u$.
+    
+    \emph{Hint:  Look at functions $u$ rapidly oscillating between two values $w_0\in\R^m$ and $w_1\in \R^m$ such that the weak limit takes the value $w_\theta := (1{-}\theta)w_0 + \theta w_1$ (comp. Exercise 13).}
+\end{itemize}
 
 \aaa{Uniform convexity.} 
 Let $X$ be a Banach space, and let $I\colon X\to\R_\infty$
@@ -27,10 +65,21 @@ such that
 \[
 \forall v\in X: \quad I(v)\geq I(u)+L_u(v-u)+g(\|u-v\|). 
 \] 
-Show that $g'(0)=0$ if and only if 
+Show that $\lim_{t\to0}\frac{g(t)}{t}=0$ if and only if 
 $I$ is Gateaux differentiable,
-that is, the first variation $\rmD I(u)[v]$ 
-exists for any $u,v\in X$.
+that is, the first variation $\rmD I(u)[w]$ 
+exists for any $u,w\in X$.
 Moreover, show
 that in this case $L_u=\rmD I(u)$ for all $u\in X$.
+
+\aaa{Uniform convexity in Hilbert spaces.} 
+Let $X\neq \{0\}$ be a Hilbert space.
+\begin{enumerate}
+    \item[(a)]
+    Show that $I\colon X\to[0,\infty]$, 
+    $I(u)=\|u\|^2_X$ is uniformly convex. 
+    \item[(b)]
+    Show that $I\colon X\to[0,\infty]$, 
+    $I(u)=\|u\|_X$ is convex but not uniformly convex. 
+\end{enumerate}
 \end{document}

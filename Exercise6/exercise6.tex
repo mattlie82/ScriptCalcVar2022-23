@@ -1,0 +1,66 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\input{../header.tex}
+
+\begin{document}
+
+\exerciseSet{6}{November 28, 2022}
+
+\setcounter{AUFGABE}{18}
+
+
+\aaa{Convexity of integrands and functionals.} Show that for
+functionals $I(u)= 
+\int_\Omega f(u(x),\nabla u(x))\dd x$ the convexity of $f:\R^m\ti
+\R^{m\ti d} \to \R$ is sufficient for convexity of $I$ but not
+necessary. 
+To do so, consider the one-dimensional case $\Omega=\left]0,\ell\right[$ 
+and $f(u,A)=\frac 12 |A|^2
++(Bu)\cdot A+\frac12|u|^2$ for some  $B\in \R^{m \ti m}$. 
+
+\begin{itemize}
+    \item[(a)] Show that convexity of $f$ is equivalent
+to $\|B\|:=\sup \set{|Bu|}{ |u|\leq 1} \leq 1$.
+\item[(b)] Show that convexity of $I:X=\rmC^1_0([0,\ell];\R^m)\to \R$ holds, if 
+$\| B{-}B^\top\| \leq 2$. 
+\end{itemize}
+
+\aaa{Weak closedness.} Consider a closed subset $C$ of $\R^m$ and
+a bounded domain $\Omega\subset \R^d$. 
+Define $\calC_p=\set{u\in \rmL^p(\Omega;\R^m)}{ u(x) \in C \text{
+    a.e.\ in  } \Omega }$ for $p\in [1,\infty]$. (In the case
+$p=\infty$ replace ``weak closedness'' with ``weak$^*$ closedness'' in what follows.) 
+
+\begin{itemize}
+    \item[(a)] Show that $\calC_p$ is weakly closed if $C$ is convex. 
+
+\item[(b)] Show that weak closedness of $\calC_p$ implies convexity of $C$. 
+\end{itemize}
+
+
+\aaa{Subdifferentials of integrals and integrands.}
+Consider a convex, lower semi-continuous function $f:\R^m \to [0,\infty]$ with $f\not\equiv +\infty$, 
+and
+define the functional 
+\[
+I_f:\rmL^p(\Omega;\R^m) \to [0,\infty], \quad u \mapsto \int_\Omega f(u(x))
+\dd x ,
+\] 
+for some $p\in {(1,\infty)}$ and a domain $\Omega\subset\R^d$. Express $\pl I_f(u)$ explicitly in terms
+of $\pl f(u(x))$.
+\\
+\textit{Hint:}
+Use Lebesgue's differentiation theorem: 
+Let $g\in\rmL_{\mathrm{loc}}^1(\Omega)$, and let $B_R(x_0)$ be the ball of radius $R>0$ centered at $x_0\in\Omega$.
+Then it holds
+\[
+\lim_{R\to 0}\,\frac{1}{\mathrm{vol}(B_R(x_0))}\int_{ B_R(x_0)} g(x)\dd x
+=g(x_0)
+\quad
+\text{for a.a.~} x_0\in\Omega.
+\]
+%under the additional assumption that the identity
+%$(I_f)^*= I_{f^*}$ is known. 
+
+\end{document}
