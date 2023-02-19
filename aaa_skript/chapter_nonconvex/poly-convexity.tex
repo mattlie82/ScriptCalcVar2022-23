@@ -1,0 +1,140 @@
+\section{Poly-Convexity}
+We consider $f:\mathbb{R}^{m\times d}\longrightarrow\mathbb{R}_\infty$ and the associated functional
+\[I(u)=\int_\Omega{f(\nabla u(x))\mathrm{d}x}\]
+such that
+\begin{itemize}
+	\item[(a)] $f$ is poly-convex with $f(A)=g(T(A))$ and a suitable, convex $g:\mathbb{R}^{\tau(m,d)}\longrightarrow\mathbb{R}_\infty$,
+	\item[(b)] $f(A)\geq\alpha_0+B_0:A$ for some $\alpha_0\in\mathbb{R}$, $B_0\in\mathbb{R}^{m\times d}$.\\
+\end{itemize}
+
+We can also write $I(u)=J(T(\nabla u))$, where
+\[J:L^q(\Omega;\mathbb{R}^{\tau(m,d)})\longrightarrow\mathbb{R}_\infty,\qquad J(\widetilde{T}):=\int_\Omega{g(\widetilde{T}(x))\mathrm{d}x}.\]
+Our goal is to establish weak lower semicontinuity for $I$ on $W^{1,q}(\Omega;\mathbb{R}^m)$. So far we know from our developed theory, since $J$ is convex, that $J$ is weakly lower semicontinuous on $L^q(\Omega;\mathbb{R}^{\tau(m,d)})$. So it remains to show weak sequential continuity of
+\[\widehat{T}:W^{1,q}(\Omega;\mathbb{R}^m)\longrightarrow L^q(\Omega;\mathbb{R}^{\tau(m,d)}),\qquad\widehat{T}(u):=T(\nabla u).\]
+If for example $\min\{m,d\}=1$, then $\widehat{T}$ is linear since $T(A)=A$. In the case $\min\{m,d\}>1$, $\widehat{T}$ is no longer linear. Here we will use the special structure of the gradient minors. Of course, we are talking about nothing other than the divergence structure.\\[11pt]
+
+\begin{theorem}[Weak continuity of gradient minors]
+Let $s\in\{1,\dotsc,\min\{m,d\}\}$ and $p>s$. Let $(u_n)_{n\in\mathbb{N}}\subset W^{1,p}(\Omega;\mathbb{R}^m)$, $u\in W^{1,p}(\Omega;\mathbb{R}^m)$. Then $T_s(\nabla u_n),T_s(\nabla u)\in L^{\frac{p}{s}}(\Omega;\mathbb{R}^{\tau_s(m,d)})$ for each $n\in\mathbb{N}$. If moreover $u_n\rightharpoonup u$ in $W^{1,p}(\Omega;\mathbb{R}^m)$ then $T_s(\nabla u_n)\rightharpoonup T_s(\nabla u)$ in $L^\frac{p}{s}(\Omega;\mathbb{R}^{\tau_s(m,d)})$.
+\end{theorem}
+
+\begin{remark} 
+The first version was proven by Yurii Reshetnyak \textit{1968. Then, in 1977,} John Ball \textit{gave a better version of the proof.}
+\end{remark}
+
+\textit{The claim is wrong for $p=s$. The crucial point is that we will use that $C_c^\infty(\Omega;\mathbb{R}^m)$ is dense in $L^{(p/s)'}(\Omega;\mathbb{R}^m)$, but this is no longer true if $p=s$ as ``$1'=\infty$''. We will discuss counterexamples in the exercise class.}\\
+
+\begin{proof}
+Observe that each $w\in W^{1,p}(\Omega;\mathbb{R}^m)$ fulfills $T_s(\nabla w)\in L^{\frac{p}{s}}(\Omega;\mathbb{R}^{\tau_s(m,d)})$ (that's true even if $p=s$). For the weak convergence we use an induction over $s$.\\
+
+\textit{Base case:} $s=1$.
+\begin{itemize}
+	\item[] In that case, $A\longmapsto T_1(A)=A$ is linear and the claim follows.\\
+\end{itemize}
+
+\textit{Induction step:} $s-1\rightsquigarrow s$.
+\begin{itemize}
+	\item[] By Rellich's compact theorem we obtain $u_n\to u$ in $L^p(\Omega;\mathbb{R}^m)$, and from that we also obtain $u_n\to u$ in $L^{(\frac{p}{s-1})'}(\Omega;\mathbb{R}^m)$ since
+	\[\left(\frac{p}{s-1}\right)'=\frac{p}{s-1}\cdot\frac{1}{\frac{p}{s-1}-1}=\frac{p}{p-s+1}<p,\]
+	since $p>s$. Consider an arbitrary minor of order $s$ with row indices $K=(k_1,\dotsc,k_s)$ and column indices $L=(\ell_1,\dotsc,\ell_s)$. For weak convergence we have to show
+	\[\int_\Omega{\det\bigl((\nabla u_n(x))_{K,L}\bigr)\varphi(x)\mathrm{d}x}\to\int_\Omega{\det\bigl((\nabla u(x))_{K,L}\bigr)\varphi(x)\mathrm{d}x}\]
+	as $n\to\infty$, for all $\varphi\in L^{(p/s)'}(\Omega;\mathbb{R})$. Since $u_n\rightharpoonup u$ in $W^{1,p}(\Omega;\mathbb{R}^m)$ we have that $(\nabla u_n)_{n\in\mathbb{N}}$ and $\nabla u$ are uniformly bounded in $L^p(\Omega;\mathbb{R}^{m\times d})$. Hence, $(\det((\nabla u_n)_{K,L}))_{n\in\mathbb{N}},\det((\nabla u)_{K,L})$ are uniformly bounded in $L^{\frac{p}{s}}(\Omega;\mathbb{R})$ as well. Thus, it suffices to consider $\varphi$ in the dense subset $C_c^\infty(\Omega;\mathbb{R})$. \hyperlink{lemma_4_1_7}{Lemma 4.1.7} and integration by parts yields
+	\begin{align*}
+		&\int_\Omega{\det\bigl((\nabla u_n(x))_{K,L}\bigr)\varphi(x)\mathrm{d}x}\\
+		&\qquad\qquad=\int_\Omega{\sum_{j=1}^s{\frac{\partial}{\partial x_{\ell_j}}\Biggl((-1)^{j+1}(u_n)_{k_1}(x)\underbrace{\det\left(\frac{\partial((u_n)_{k_2},\dotsc,(u_n)_{k_s})}{\partial(x_{\ell_1},\dotsc,\widehat{x}_{\ell_j},\dotsc,x_{\ell_s})}(x)\right)}_{=:a_{n,j}(x)}\Biggr)}\varphi(x)\mathrm{d}x}\\
+		&\qquad\qquad=-\int_\Omega{\sum_{j=1}^s{(-1)^{j+1}(u_n)_{k_1}(x)a_{n,j}(x)\partial_{x_{\ell_j}}\varphi(x)}\mathrm{d}x}.
+	\end{align*}
+	(The middle step is only allowed for $u_n\in C^3(\Omega;\mathbb{R}^m)$, but, by a density argument, the conclusion remains true for the regularity our $u_n$ have.) By induction hypothesis we have $a_{n,j}\rightharpoonup a_j$ in $L^{\frac{p}{s-1}}(\Omega;\mathbb{R})$, where $a_j=\det\Bigl(\frac{\partial((u_n)_{k_2},\dotsc,(u_n)_{k_s})}{\partial(x_{\ell_1},\dotsc,\widehat{x}_{\ell_j},\dotsc,x_{\ell_s})}\Bigr)$. Moreover, we have $(u_n)_{k_1}\partial_{x_{\ell_j}}\varphi\in L^{(\frac{p}{s-1})'}(\Omega;\mathbb{R})$ and strong convergence $(u_n)_{k_1}\partial_{x_{\ell_j}}\varphi\to u_{k_1}\partial_{x_{\ell_j}}\varphi$ in $L^{(\frac{p}{s-1})'}(\Omega;\mathbb{R})$ for $n\to\infty$. Together with the weak convergence of $(a_{n,j})_{n\in\mathbb{N}}$ we get
+	\begin{align*}
+		&\int_\Omega{\det\bigl((\nabla u_n(x))_{K,L}\bigr)\varphi(x)\mathrm{d}x}\\
+		&\qquad\qquad\to-\int_\Omega{\sum_{j=1}^s{\frac{\partial}{\partial x_{\ell_j}}\left((-1)^{j+1}u_{k_1}(x)\det\left(\frac{\partial(u_{k_2},\dotsc,u_{k_s})}{\partial(x_{\ell_1},\dotsc,\widehat{x}_{\ell_j},\dotsc,x_{\ell_s})}(x)\right)\right)}\varphi(x)\mathrm{d}x}\\
+		&\qquad\qquad=\int_\Omega{\det\bigl((\nabla u(x))_{K,L}\bigr)\varphi(x)\mathrm{d}x}.
+	\end{align*}
+\end{itemize}
+\end{proof}
+
+
+From now on, we assume that $\infty>p>\min\{m,d\}>1$. We introduce
+\[Y_{p,m,d}:=\bigtimes_{s=1}^{\min\{m,d\}}{L^{\frac{p}{s}}\left(\Omega;\mathbb{R}^{\tau_s(m,d)}\right)}\]
+so that $Y_{p,m,d}\longhookrightarrow L^{\frac{p}{\min\{m,d\}}}(\Omega;\mathbb{R}^{\tau(m,d)})$ is a reflexive Banach space. We have seen above that the map
+\[\widehat{T}:W^{1,p}(\Omega;\mathbb{R}^m)\longrightarrow Y_{p,m,d},\qquad\widehat{T}(u):=T(\nabla u)\]
+is continuous with respect to norm (since the operator only includes sums of products of $L^p$-factors) and weak topology. Define
+\[\Gamma:=\widehat{T}\left(W^{1,p}(\Omega;\mathbb{R}^m)\right)\subset Y_{p,m,d}.\]
+For this set observe the following:
+\begin{itemize}
+	\item[(a)] $\Gamma$ is weakly sequentially closed. Indeed, let $(\gamma^{(n)})_{n\in\mathbb{N}}\subset\Gamma$ be a sequence of gradient minors such that $\gamma^{(n)}\rightharpoonup\gamma$ in $Y_{p,m,d}$ as $n\to\infty$ for some $\gamma\in Y_{p,m,d}$. By definition of $\Gamma$, there exist $u^{(n)}\in W^{1,p}(\Omega;\mathbb{R}^m)$ with $\gamma^{(n)}=\widehat{T}(u^{(n)})$. Note that $u^{(n)}$ is in general not unique, but if we assume in addition $\int_\Omega{u^{(n)}(x)\mathrm{d}x}=0\in\mathbb{R}^m$, then $u^{(n)}$ is unique by Poincar\'e-Wirtinger inequality
+	\[\left\lVert u-\fint_\Omega{u(x)\mathrm{d}x}\right\rVert_{L^p(\Omega;\mathbb{R}^m)}\leq C_\text{PW}\lVert\nabla u\rVert_{L^p(\Omega;\mathbb{R}^{m\times d})}\]
+	and $\nabla u^{(n)}=T_1(\nabla u^{(n)})=\gamma_1^{(n)}$. So we get $\nabla u^{(n)}=T_1(\nabla u^{(n)})=\gamma_1^{(n)}\rightharpoonup\gamma_1$ in $L^p(\Omega;\mathbb{R}^{m\times d})$. In particular, $(\nabla u^{(n)})_{n\in\mathbb{N}}$ is bounded in $L^p(\Omega;\mathbb{R}^{m\times d})$ and then Poincar\'e-Wirtinger provides boundedness of $(u^{(n)})_{n\in\mathbb{N}}$ in $L^p(\Omega;\mathbb{R}^m)$. Thus, by reflexivity of $L^p(\Omega;\mathbb{R}^m)$, we have up to a subsequence which we do not relabel that $u^{(n)}\rightharpoonup u$ in $L^p(\Omega;\mathbb{R}^m)$ for some $u\in L^p(\Omega;\mathbb{R}^m)$. For all $\varphi\in C_c^\infty(\Omega;\mathbb{R}^m)$ we have
+	\begin{align*}
+		\int_\Omega{\gamma_{1,\bullet\ell}(x)\varphi(x)\mathrm{d}x}&=\lim_{n\to\infty}{\int_\Omega{\partial_{x_\ell}u^{(n)}(x)\varphi(x)\mathrm{d}x}}\\
+		&=-\lim_{n\to\infty}{\int_\Omega{u^{(n)}(x)\partial_{x_\ell}\varphi(x)\mathrm{d}x}}\\
+		&=-\int_\Omega{u(x)\partial_{x_\ell}\varphi(x)\mathrm{d}x},
+	\end{align*}
+	so $\nabla u=\gamma_1$ since weak derivative is unique. \hyperlink{theorem_4_2_1}{Theorem 4.2.1} yields $\gamma^{(n)}=\widehat{T}(u^{(n)})\rightharpoonup\widehat{T}(u)$ as $n\to\infty$, and, since the weak limit is unique, we infer $\gamma=\widehat{T}(u)$. Therefore $\gamma\in\Gamma$.
+	\item[(b)] $\Gamma$ is not convex. Recall Mazur's lemma: If a set is strongly closed and convex then it is also weakly closed. But here $\Gamma$ is not convex. To see this we let
+	\[A_1=\left(\begin{array}{c|c}
+		\begin{array}{cc}
+			+1&0\\
+			0&+1
+		\end{array}&\textbf{0}\\ \hline
+		\textbf{0}&\textbf{0}
+	\end{array}\right)\quad\text{and}\quad A_2=\left(\begin{array}{c|c}
+		\begin{array}{cc}
+			-1&0\\
+			0&-1
+		\end{array}&\textbf{0}\\ \hline
+		\textbf{0}&\textbf{0}
+	\end{array}\right)\]
+	and define $u_j(x)=A_jx$ for $j=1,2$. Then $\widehat{T}(u_j)\in\Gamma$ and
+	\[\frac{1}{2}T_2(A_1)+\frac{1}{2}T_2(A_2)=(1,0,\dotsc,0)\in\mathbb{R}^{\tau_2(m,d)},\]	
+	where we put $\det(A_{(1,2),(1,2)})$ here in the first component of $T_2(A)$. But
+	\[\frac{1}{2}\widehat{T}(u_1)+\frac{1}{2}\widehat{T}(u_2)=(\underbrace{0}_{\in\mathbb{R}^{m\times d}},\underbrace{\frac{1}{2}T_2(A_1)+\frac{1}{2}T_2(A_2)}_{\ne0\in\mathbb{R}^{\tau_2(m,d)}},\dotsc).\]
+	No matrix $A$ exists such that $T(A)=\frac{1}{2}T(A_1)+\frac{1}{2}T(A_2)$.\\[11pt]
+\end{itemize}
+
+The set $\widetilde{\Gamma}=\{T(A)\mid A\in L^p(\Omega;\mathbb{R}^{m\times d})\}$ is closed with respect to norm in $Y_{p,m,d}$, but not weakly sequentially closed. The point is that general matrix-valued functions $A\in L^p(\Omega;\mathbb{R}^{m\times d})$ do not have an additional structure like a gradient structure. For example take
+\[A_k:\Omega\longrightarrow\mathbb{R}^{m\times d},\qquad A_k(x_1,\dotsc,x_d):=\left(\begin{array}{c|c}
+	\begin{array}{cc}
+		\sin(kx_1)&0\\
+		0&\sin(kx_j)
+	\end{array}&\textbf{0}\\ \hline
+	\textbf{0}&\textbf{0}
+\end{array}\right)\]
+for $j\in\{1,\dotsc,d\}$ fixed. We know that $A_k\rightharpoonup0$ in $L^p(\Omega;\mathbb{R}^{m\times d})$ for all $p\in[1,\infty)$, even $A_k\overset{*}{\rightharpoonup}0$ in $L^\infty(\Omega;\mathbb{R}^{m\times d})$. Consider $T_2(A_k(x))=(\sin(kx_1)\sin(kx_j),0,\dotsc,0)$ which converges weakly to $(\rho,0,\dotsc,0)$ as $k\to\infty$, where
+\[\rho=\left\{\begin{array}{rl}
+	0&\text{if }j\ne1,\\
+	\frac{1}{2}&\text{if }j=1.
+\end{array}\right.\]
+For $j=1$, $A_k$ cannot be written as a gradient of a function $u_k$ because $\partial_{x_2}u_{k,2}=\sin(kx_1)$ and $\partial_{x_1}u_{k,2}=0$ cannot be fulfilled simultaneously. For $j=2$, we have $A_k=\nabla u_k$ with
+\[u_k(x)=\begin{pmatrix}
+	-\frac{1}{k}\cos(kx_1)\\
+	-\frac{1}{k}\cos(kx_2)\\
+	0\\
+	\vdots\\
+	0
+\end{pmatrix}.\]\\
+
+\begin{theorem}[Weak sequential lower semicontinuity in poly-convex case]
+Let $\Omega\subset\mathbb{R}^d$ be an open, bounded Lipschitz domain, let $g:\Omega\times\mathbb{R}^{\tau(m,d)}\longrightarrow[0,\infty]$ be continuous and such that $g(x,\cdot):\mathbb{R}^{\tau(m,d)}\longrightarrow[0,\infty]$ is convex for almost all $x\in\Omega$. Then, the associated functional
+\[I:W^{1,p}(\Omega;\mathbb{R}^m)\longrightarrow[0,\infty],\qquad I(u):=\int_\Omega{g(x,T(\nabla u(x)))\mathrm{d}x}\]
+is weakly sequentially lower semicontinuous for all $\infty>p>\min\{m,d\}(>1)$.\\
+\end{theorem}
+\textit{Remark: The function $g$ can be generalized, see Chapter~\ref{ch:convexcase}}\\
+
+\begin{proof}
+Consider the auxiliary functional
+\[J:Y_{p,m,d}\longrightarrow[0,\infty],\qquad J(\gamma):=\int_\Omega{g(x,\nabla\gamma(x))\mathrm{d}x}\]
+so that $I=J\circ\widehat{T}$. Clearly $J$ is convex, and due to Fatou's lemma it is also lower semicontinuous with respect to norm continuity. Then $J$ is also weakly sequentially lower semicontinuous on $Y_{p,m,d}$ by \hyperlink{theorem_3_2_6}{Theorem 3.2.6}. If $u_n\rightharpoonup u$ in $W^{1,p}(\Omega;\mathbb{R}^m)$ for $u_n,u\in W^{1,p}(\Omega;\mathbb{R}^m)$, then $\widehat{T}(u_n)\rightharpoonup\widehat{T}(u)$ in $Y_{p,m,d}$ by \hyperlink{theorem_4_2_1}{Theorem 4.2.1} and hence
+\[\liminf_{n\to\infty}{I(u_n)}=\liminf_{n\to\infty}{J(\widehat{T}(u_n))}\geq J(\widehat{T}(u))=I(u).\]
+\end{proof}
+
+\begin{theorem}
+[Existence of minimizers in poly-convex case]
+Let $\Omega\subset\mathbb{R}^d$ be an open, bounded Lipschitz domain, $g:\Omega\times\mathbb{R}^{m\times d}\longrightarrow\mathbb{R}_\infty$ continuous, and convex in the second component, $\infty>p>\min\{m,d\}$. Additionally assume that
+\[g(T(A))\geq C_1\lvert A\rvert^p-C_2\]
+for some $C_1,C_2\in(0,\infty)$. Then, for every $\varphi\in(W^{1,p}(\Omega;\mathbb{R}^m))'$ the functional
+\[I:W_0^{1,p}(\Omega;\mathbb{R}^m)\longrightarrow\mathbb{R}_\infty,\qquad I(u):=\int_\Omega{g(T(\nabla u(x)))\mathrm{d}x}-\varphi(u)\]
+has a minimizer $u_*\in W_0^{1,p}(\Omega;\mathbb{R}^m)$.\\
+\end{theorem}
+\begin{proof}
+Combine the abstract existence result with the previous theorem. To be more precise, the space $W_0^{1,p}(\Omega;\mathbb{R}^m)$ is reflexive, $I$ is coercive because of the $p$-growth and Poincar\'e inequality, and $I$ is weakly lower semicontinuous by \hyperlink{theorem_4_2_2}{Theorem 4.2.2} (applied to $g+C_2$ which is non-negative). Hence \hyperlink{theorem_3_1_14}{Theorem 3.1.14} postulates a minimizer.
+\end{proof}

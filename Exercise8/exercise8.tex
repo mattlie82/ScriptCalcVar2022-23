@@ -1,0 +1,104 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\input{../header.tex}
+
+\begin{document}
+
+\exerciseSet{8}{January 9, 2023}
+
+\setcounter{AUFGABE}{25}
+
+\aaa{``$\boldsymbol{\rmW^{1,\infty} = \rmC^{0,1}}$''.}
+Let $\Omega\subset\R^d$ be a bounded domain with Lipschitz boundary, and let 
+\[
+\rmC^\text{0,1}(\overline\Omega)\coloneqq\set{u\in\rmC^0(\overline\Omega)}{\exists L>0: |u(x)-u(y)|\leq L|x-y|
+\text{ for all }x,y\in\Omega}
+\]
+denote the class of Lipschitz continuous functions. Show that $u\in\rmW^{1,\infty}(\Omega)$
+if and only if
+there is $v\in\rmC^{0,1}(\overline{\Omega})$ 
+such that $u=v$ a.e.~in $\Omega$.
+
+\aaa{Continuity of convex functions with $p$-growth.}
+Let $p\in(1,\infty)$ and $M>0$. 
+\begin{enumerate}
+    \item [(a)]
+    Let $g\colon\R\to[0,\infty)$ be convex and satisfy
+    $g(x)\leq M(1+|x|^p)$ for all $x\in\R$.
+    Show that there exists a constant $C>0$ such that
+    \[
+    |g(x)-g(y)|\leq C|x-y|(1+|x|^{p-1}+|y|^{p-1})
+    \quad\text{ for all }x,y\in\R.
+    \]
+    \item[(b)]
+    Let $f\colon\R^{m\times d}\to[0,\infty)$ be rank-one convex and satisfy
+    $f(A)\leq M(1+|A|^p)$ for all $A\in\R^{m\times d}$.
+    Show that there exists a constant $C>0$ such that
+    \[
+    |f(A)-f(B)|\leq C|A-B|(1+|A|^{p-1}+|B|^{p-1})
+    \quad\text{ for all }A,B\in\R^{m\times d}.
+    \]
+\end{enumerate}
+
+
+\aaa{Sufficient condition for weak lower semicontinuity.}
+Decide how to choose $q\in[1,\infty)$ such that
+the following generalization of Theorem 3.44 holds:
+\\
+Let $\Omega\subset\R^d$ be a bounded domain with Lipschitz boundary,
+and let  $f:\Omega\times \R^m\times \R^{m\times d} \to \R$
+be a Carath\'eodory function
+such that $A\mapsto f(x,u,A)$ is convex for a.a.~$x\in\Omega$ and all $u\in\R^m$.
+Let $\gamma\in\rmL^1(\Omega)$ and $c\in\R$ such that
+\[
+f(x,u,A)\geq \gamma(x)+c|u|^q
+\]
+for a.a.~$x\in\Omega$ and all $(u,A)\in\R^d\times\R^{m\times d}$.
+Then the functional 
+\[
+I\colon \rmW^{1,p}(\Omega;\R^m)\to\R_\infty, \quad
+I(u)=\int_\Omega f(x,u(x),\nabla u(x))\,\dd x
+\]
+is weakly lower semicontinuous.
+
+\aaa{Lavrentiev gap phenomenon.} This phenomenon, discovered in 1926 by Mikhail Lavrentiev, 
+refers to the situation when the infimum of a functional over different spaces
+that are ``close to each other'' may 
+indeed be different, i.e., for a functional $I:X\to \R_{\infty}$ 
+and a dense embedding $\wt X\hookrightarrow X$ it may be the case that
+\[
+\inf_{u\in X} I(u) < \inf_{\wt u \in \wt X} I(\wt u).
+\]
+\begin{itemize}
+    \item[(a)] Let $f:\Omega\times \R^m\times \R^{m\times d} \to \R$ be a Carath\'eodory function
+    satisfying the growth condition
+    \[
+        |f(x,u,A)| \leq C(1+|u|^p +|A|^p),
+    \]
+    for some constant $C>0$ and $p\in[1,\infty[$. Show that the Lavrentiev phenomenon does NOT appear, i.e.\
+    \[\inf_{u\in \rmW^{1,p}(\Omega;\R^m)} I(u) = \inf_{\wt u\in \rmC^\infty(\ol\Omega;\R^m)} I(\wt u)\]
+    \item[(b)] (Example by Mani\`a, 1934) Consider the functional
+    \[
+        I(u) = \int_0^1 (u(x)^3-x)^2(u'(x))^6\dd x
+        %\quad\text{subject to}\quad u(0)=0,~u(1) =1
+    \]
+    for $u$ either in 
+    \[
+    X=\{ v\in \rmW^{1,1}(0,1)\,|\,v(0)=0,~v(1) =1\}
+    \]
+    or in
+    \[
+    \wt X=\{ v\in \rmW^{1,\infty}(0,1)\,|\,v(0)=0,~v(1) =1\}.
+    \]  
+    Show that the infima over both spaces are different, i.e., 
+    the Lavrentiev phenomena appears. Proceed as follows:
+    \begin{enumerate}
+        \item Show that $u_*(x) = x^{1/3}$ is a minimizer in $X$ but no element of $\wt X$.
+        \item Using Exercise 26, show that for each $u\in \wt X$ there exists $x_*\in\left]0,1\right[$ such that $u(x)\leq x^{1/3}/2$ for $x\in [0,x_*]$ and such that $u(x_*)= x_*^{1/3}/2$.
+        \item Conclude that $I(u)\geq \frac{7^2}{8^2}\int_0^{x_*}x^2(u'(x))^6\dd x$
+        \item Use H\"older's inequality with some suitable exponent $p$ to relate the previous estimate to $\int_0^{x_*} u'(x)\dd x = x_*^{1/3}/2$ and confirm the Lavrentiev phenomenon.
+    \end{enumerate}
+\end{itemize}
+
+\end{document}

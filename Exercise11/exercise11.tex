@@ -1,0 +1,84 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\input{../header.tex}
+
+\begin{document}
+
+\exerciseSet{11}{January 31, 2023}
+
+\setcounter{AUFGABE}{36}
+
+
+
+\aaa{Quasi-convexity.}
+The definition of quasi-convexity for a continuous function
+$f:\R^{m\ti d} \to\R$ reads as follows:
+\[
+\forall\, A\in \R^{m\ti d} \ \forall \, \phi\in \rmC^\infty_\rmc({B_1(0)};\R^m)
+: \quad \int_{B_1(0)} f(A{+}\nabla \phi(x)) \dd x \geq \int_{B_1(0)}
+f(A) \dd x ,
+\]
+where $B_1(0)$ is the open unit ball in $\R^d$ centered at $0$. 
+\begin{itemize}
+\item[(a)] Show that in the definition of quasi-convexity any open  bounded
+domain $\Omega \subset \R^d$ can be used without changing the
+definition. 
+\item[(b)] Show that the much larger set
+$\rmW^{1,\infty}_0(\Omega;\R^m)$ of test functions can be used
+instead of $\rmC^\infty_\rmc(\Omega;\R^m)$. 
+\item[(c)] Considering $\Omega=Q={]0,1[}^d\subset \R^d$, we may look at periodic
+functions $\psi\in \rmC^\infty_\text{per}(\R^d;\R^m)$, i.e.\ $\psi\in
+\rmC^\infty(\R^d;\R^m)$ with $\psi(m{+}y)=\psi(y)$ 
+for $m\in \Z^d$ and $y\in \R^d$. Show that quasi-convexity is
+equivalent to 
+\[
+\forall\, A\in \R^{m\ti d} \ \forall \, \psi\in 
+\rmC^\infty_\text{per}(\R^d;\R^m):\quad 
+ \int_Q f(A{+}\nabla \psi(x)) \dd x \geq f(A).
+\]
+\end{itemize}
+
+
+
+\aaa{Quasi-convexity implies rank-one convexity.}
+Consider the periodic function $h:\R \to \R$ with period $1$, \, 
+$h(t)=1{-}\theta$ for $t\in {[0,\theta[}$ and $h(t)=-\theta$ for $t\in
+{[\theta,1[}$ and its primitive function $H(t)=\int_0^t h(r) \dd
+r$.%  
+\begin{itemize}
+\item[(a)] For $a\in \R^m$ and $\eta\in \R^d$ define the sequence $u_k(x) =
+\frac1k H(k \eta{\cdot} x)a$. Show that $u_k\rightharpoonup0$ in
+$\rmW^{1,p}(\Omega;\R^d)$.% 
+\item[(b)] For a function $f:\R^{m\ti d}\to \R$ and fixed $A \in\R^{m\ti d}$
+calculate $\lim\limits_{k\to \infty}\int_\Omega f\big(A{+}\nabla u_k(x)\big)\dd
+x$.% 
+\item[(c)] Show for continuous $f:\R^{m\ti d} \to \R$ that quasi-convexity
+implies rank-one convexity.  
+\end{itemize}
+
+
+
+
+
+\aaa{Counterexample concerning Reshetnyak's theorem.}
+Take $m=d=p=2$ and $\Omega ={]-1,1[}^2$ and the sequence
+\[
+u^k(x_1,x_2)=\frac1{\sqrt{k}} (1{-}|x_2|)^k \big( \sin(kx_1), \cos(kx_1)\big).
+\]
+\begin{itemize}
+\item[(a)] Show that $u^k \rightharpoonup 0$ in $\rmH^1(\Omega;\R^2)$.
+\item[(b)] Prove that $\int_\Omega \det (\nabla u^k) \varphi \dd x \to 0$ 
+for all $\varphi \in \rmC_\rmc(\Omega)$.
+\item[(c)] Show that $\det (\nabla u^k)$ does not converge weakly to $0$ in
+$\rmL^1(\Omega)$. 
+\\
+\textit{Hint:} Consider suitable $\varphi\in
+  \rmL^\infty(\Omega)$ in (b).
+\end{itemize}
+
+
+
+
+
+\end{document}

@@ -1,0 +1,297 @@
+\section{Integral Functionals in the Convex Case}
+Consider the minimization problem for
+\[I(u)=\int_\Omega{f(x,u(x),\nabla u(x))\mathrm{d}x}\]
+on a suitable subset of the Sobolev space $W^{1,p}(\Omega;\mathbb{R}^m)$, for $1<p<\infty$. For example, on $W_0^{1,p}(\Omega;\mathbb{R}^m)$ or on $u_0+W_0^{1,p}(\Omega;\mathbb{R}^m)$, where $u_0\in W^{1,p}(\Omega;\mathbb{R}^m)$. In order to apply our abstract theory, we need to ask under which assumptions on $f:\Omega\times\mathbb{R}^m\times\mathbb{R}^{m\times d}\longrightarrow\mathbb{R}_\infty$ we have
+\begin{itemize}
+	\item[(a)] well-definedness for $I$ on $W^{1,p}(\Omega;\mathbb{R}^m)$,
+	\item[(b)] coercivity of $I$ on $W^{1,p}(\Omega;\mathbb{R}^m)$ and
+	\item[(c)] weak lower semicontinuity of $I$.\\
+\end{itemize}
+
+What could fail for well-definedness? First we need to ensure that $x\longmapsto f(x,u(x),\nabla u(x))$ is measurable. The second thing is that the integrals of the positive and negative part of $f(x,u(x),\nabla u(x))$ both may be infinite. But we even want more, namely, that $I(u)\ne-\infty$. This breaks down to having a finite negative part. To ensure well-definedness, we make the following assumption.\\
+
+\textbf{\underline{Definition 3.4.1}}\\
+(Constantin Carath\'eodory, * 1873, $\dagger$ 1950)\\
+If $\Omega\subset\mathbb{R}^d$ is an open measurable set, then $f:\Omega\times\mathbb{R}^m\times\mathbb{R}^{m\times d}\longrightarrow\mathbb{R}$ is called a \textit{Carath\'eodory function} if
+\begin{itemize}
+	\item[(i)] $f(x,\cdot,\cdot)$ is continuous for almost all $x\in\Omega$,
+	\item[(ii)] $f(\cdot,u,A)$ is measurable for all $(u,A)\in\mathbb{R}^m\times\mathbb{R}^{m\times d}$.\\
+\end{itemize}
+
+There is also a weaker notion which uses a so-called normal integrand and where continuity is replaced by lower semicontinuity.\\[11pt]
+
+\hypertarget{lemma_3_4_2}{\textbf{Lemma 3.4.2}}\\
+Let $f:\Omega\times\mathbb{R}^m\times\mathbb{R}^{m\times d}\longrightarrow\mathbb{R}$ be a Carath\'eodory function.
+\begin{itemize}
+	\item[(a)] If $u:\Omega\longrightarrow\mathbb{R}^m$, $A:\Omega\longrightarrow\mathbb{R}^{m\times d}$ are measurable, then
+	\[\Omega\longrightarrow\mathbb{R}_\infty,\qquad x\longmapsto f(x,u(x),A(x))\]
+	is measurable.
+	\item[(b)] Let $p\in[1,\infty)$ and $a\in L^1(\Omega)$, $b\in L^\infty(\Omega)$ be such that
+	\[f(x,u,A)\geq a(x)+b(x)(\lvert u\rvert^p+\lvert A\rvert^p)\]
+	for all $(u,A)\in\mathbb{R}^m\times\mathbb{R}^{m\times d}$ and almost all $x\in\Omega$. Then
+	\[I(u)=\int_\Omega{f(x,u(x),\nabla u(x))\mathrm{d}x}\in(-\infty,\infty]\]
+	is well-defined for all $u\in W^{1,p}(\Omega;\mathbb{R}^m)$.\\
+\end{itemize}
+
+\textit{Remark: This lemma gives us well-definedness for the integral functional from the beginning.}\\
+
+\textit{Proof:}
+\begin{itemize}
+	\item[(a)] At first, let $(u,A)$ be a simple function, i.e.
+	\[u(x)=\sum_{i=1}^M{\alpha_i\chi_{B_i}(x)}\quad\text{and}\quad A(x)=\sum_{i=1}^M{\beta_i\chi_{B_i}(x)}\]
+	for measurable $B_1,\dotsc,B_M\subset\Omega$, $\Omega=\dot\bigcup_{i=1}^M{B_i}$, $B_i\cap B_j=\emptyset$ for $i\ne j$, and $\alpha_i\in\mathbb{R}^m$, $\beta_i\in\mathbb{R}^{m\times d}$. Let $h(x):=f(x,u(x),A(x))$, then we want to see that $h$ is measurable. For $\gamma\in\mathbb{R}$ we have
+	\[\{x\in\Omega\mid h(x)\leq\gamma\}=\bigcup_{i=1}^M{\{x\in B_i\mid f(x,\alpha_i,\beta_i)\leq\gamma\}},\]
+	where all sets in the union are measurable because $f$ is a Carath\'eodory function. So $h^{-1}((-\infty,\gamma])\in\mathcal{B}(\Omega)$, i.e. $h$ is measurable.\\
+
+	Now let $(u,A)$ be measurable. Then $(u,A)$ is the pointwise limit of simple functions $(u_n,A_n)_{n\in\mathbb{N}}$. Since $f$ is continuous in the second and third argument,
+	\[h(x):=f(x,u(x),A(x))=\lim_{n\to\infty}{f(x,u_n(x),A_n(x))}\]
+	for almost all $x\in\Omega$, so $h$ is measurable as the limit of measurable functions.
+	\item[(b)] For $u\in W^{1,p}(\Omega;\mathbb{R}^m)$ let $F(x):=a(x)+b(x)(\lvert u(x)\rvert^p+\lvert\nabla u(x)\rvert^p)$. Then
+	\begin{align*}
+		\int_\Omega{\lvert F(x)\rvert\mathrm{d}x}&\leq\int_\Omega{\lvert a(x)\rvert\mathrm{d}x}+\int_\Omega{\lvert b(x)\rvert(\lvert u(x)\rvert^p+\lvert\nabla u(x)\rvert^p)\mathrm{d}x}\\
+		&\leq\lVert a\rVert_{L^1(\Omega)}+\lVert b\rVert_{L^\infty(\Omega)}\int_\Omega{(\lvert u(x)\rvert^p+\lvert\nabla u(x)\rvert^p)\mathrm{d}x}<\infty.
+	\end{align*}
+	Hence $F\in L^1(\Omega)$. Therefore, the negative part of $f(\cdot,u(\cdot),\nabla u(\cdot))$ is integrable.\hfill$\blacksquare$\\[11pt]
+\end{itemize}
+
+For coercivity, we need $I(u)\to+\infty$ as $\lVert u\rVert_{W^{1,p}(\Omega)}\to+\infty$. A sufficient condition for that would be $f(x,u,A)\geq c(\lvert A\rvert^p+\lvert u\rvert^p)-\gamma(x)$ for some $c>0$ and $\gamma\in L^1(\Omega)$, since then
+\[I(u)\geq c\int_\Omega{\lvert\nabla u(x)\rvert^p+\lvert u(x)\rvert^p\mathrm{d}x}-\lVert\gamma\rVert_{L^1(\Omega)}\to+\infty\]
+as $\lVert u\rVert_{W^{1,p}(\Omega)}\to+\infty$. However there is a problem. Very often, $f$ is independent of $u$. As a simple example we may consider
+\[I(u)=\int_\Omega{\frac{1}{2}\lvert\nabla u(x)\rvert^p\mathrm{d}x}\]
+which corresponds to the Laplace equation $-\Delta u=0$, but the above condition is not satisfied. There is a way out by including Poincar\'e's inequality.\\[11pt]
+
+\hypertarget{theorem_3_4_3}{\textbf{\underline{Theorem 3.4.3}}}\\
+(Sufficient condition for coercivity)\\
+Let $\Omega\subset\mathbb{R}^d$ be open and bounded, and let $f:\Omega\times\mathbb{R}^m\times\mathbb{R}^{m\times d}\longrightarrow\mathbb{R}$ be a Carath\'eodory function that satisfies
+\[f(x,u,A)\geq c\lvert A\rvert^p-\delta(x)\lvert u\rvert^p-h(x)\]
+for all $(x,u,A)\in\Omega\times\mathbb{R}^m\times\mathbb{R}^{m\times d}$, where $p\in[1,\infty)$, $c>0$, $r\in[1,p)$, $\delta\in L^{\frac{p}{p-r}}(\Omega)$, $h\in L^1(\Omega)$. Then there exist constants $\tilde{c}>0$, $\beta\in\mathbb{R}$ such that
+\[I(u):=\int_\Omega{f(x,u(x),\nabla u(x))\mathrm{d}x}\geq\tilde{c}\lVert u\rVert_{W^{1,p}(\Omega)}^p+\beta\]
+for all $u\in W_0^{1,p}(\Omega;\mathbb{R}^m)$. In particular, $I$ is coercive on $W_0^{1,p}(\Omega;\mathbb{R}^m)$.\\
+
+\textit{Remark: $W_0^{1,p}(\Omega;\mathbb{R}^m)$ can be replaced with any other subspace of $W^{1,p}(\Omega)$ where the Poincar\'e inequality holds.}\\
+
+\textit{Proof:}\\
+For $u\in W_0^{1,p}(\Omega;\mathbb{R}^m)$ we have with H\"older's inequality (applied to $\frac{p}{p-r}$ and $\frac{p}{r}$) in the second, Poincar\'e in the third line
+\begin{align*}
+	I(u)&\geq c\int_\Omega{\lvert\nabla u(x)\vert^p\mathrm{d}x}-\int_\Omega{\delta(x)\lvert u(x)\rvert^r\mathrm{d}x}-\int_\Omega{h(x)\mathrm{d}x}\\
+	&\geq c\lVert\nabla u\rVert_{L^p(\Omega)}^p-\lVert\delta\rVert_{L^{\frac{p}{p-r}}(\Omega)}\lVert u\rVert_{L^p(\Omega)}^r-\lVert h\rVert_{L^1(\Omega)}\\
+	&\geq c\lVert\nabla u\rVert_{L^p(\Omega)}^p-\lVert\delta\rVert_{L^{\frac{p}{p-r}}(\Omega)}\diam{\Omega}^r\lVert\nabla u\rVert_{L^p(\Omega)}^r-\lVert h\rVert_{L^1(\Omega)}.
+\end{align*}
+By Young's inequality ($ab\leq\frac{1}{p}a^p+\frac{1}{q}b^q$ for $\frac{1}{p}+\frac{1}{q}=1$, $a,b\geq0$) we have
+\[\diam{\Omega}^r\lVert\delta\rVert_{L^{\frac{p}{p-r}}(\Omega)}\lVert\nabla u\rVert_{L^p(\Omega)}^r\leq\frac{r}{p}\lVert\nabla u\rVert_{L^p(\Omega)}^p\varepsilon^p+\underbrace{\frac{p-r}{p}\varepsilon^{-\frac{p}{p-r}}\diam{\Omega}^{\frac{pr}{p-r}}\lVert\delta\rVert_{L^{\frac{p}{p-r}}(\Omega)}^{\frac{p}{p-r}}}_{=:\tilde{\beta}}.\]
+Choosing $\varepsilon$ small, e.g. such that $\varepsilon^p\leq\frac{c}{2}$, then we have
+\[I(u)\geq\frac{c}{2}\lVert\nabla u\rVert_{L^p(\Omega)}^p-\tilde{\beta}-\lVert h\rVert_{L^1(\Omega)}\geq\tilde{c}\lVert u\rVert_{W^{1,p}(\Omega)}^p+\beta,\]
+with $\tilde{c}=\frac{c}{4}\min\{1,\diam{\Omega}^{-p}\}$ and $\beta=-\tilde{\beta}-\lVert h\rVert_{L^1(\Omega)}$.\hfill$\blacksquare$\\[11pt]
+
+\textbf{Example 3.4.4}\\
+Let $\Omega\subset\mathbb{R}^d$ be a bounded Lipschitz domain and consider
+\[I(u)=\int_\Omega{\frac{1}{2}\lvert\nabla u(x)\rvert^2\mathrm{d}x}.\]
+Then $I$ is coercive in $W_0^{1,p}(\Omega;\mathbb{R}^m)$ for $p\in[1,2]$ by \hyperlink{theorem_3_4_3}{Theorem 3.4.3} since it holds $f(x,u,A)=\frac{1}{2}\lvert A\rvert^2\geq c_p\lvert A\rvert^p-\tilde{c}_p$, where $c_p,\tilde{c}_p$ will be determined now. This is again a setting for Young's inequality with exponents $\frac{2}{p}$, $\frac{2}{2-p}$, i.e. we have
+\[\lvert A\rvert^p=\lvert A\rvert^p\cdot 1\leq\frac{p}{2}\lvert A\rvert^2+\frac{2-p}{2}\cdot 1^{\frac{2}{2-p}}.\]
+So $c_p=\frac{1}{p}$ and $\tilde{c}_p=\frac{2-p}{2p}$.\\
+
+But $I$ is not coercive for $p>2$. To see this, we take $u\in W_0^{1,2}(\Omega;\mathbb{R}^m)\setminus W_0^{1,p}(\Omega;\mathbb{R}^m)$ and $(u_n)_{n\in\mathbb{N}}\subset C_c^\infty(\Omega;\mathbb{R}^m)$ such that $u_n\to u$ in $W^{1,2}(\Omega;\mathbb{R}^m)$. Then
+\[I(u_n)=\int_\Omega{\frac{1}{2}\lvert\nabla u_n(x)\rvert^2\mathrm{d}x}\to\int_\Omega{\frac{1}{2}\lvert\nabla u(x)\rvert^2\mathrm{d}x}=I(u)\]
+for $n\to\infty$. If $I$ is coercive, we would have $\lVert u_n\rVert_{W^{1,p}(\Omega;\mathbb{R}^m)}\leq C$, and reflexivity implies the weak convergence of a subsequence $u_{n_k}\rightharpoonup\tilde{u}$ as $k\to\infty$ for some $\tilde{u}\in W_0^{1,p}(\Omega;\mathbb{R}^m)$. But then $u_{n_k}\to\tilde{u}$ in $W^{1,2}(\Omega;\mathbb{R})$ by Rellich's compact embedding. Thus, $u=\tilde{u}\in W_0^{1,p}(\Omega;\mathbb{R}^m)$ which is a contradiction to the choice of $u$.\\[11pt]
+
+Finally, we address the question regarding weak lower semicontinuity.\\
+
+\textbf{Remark 3.4.5}\\
+The functional $I$ can be lower semicontinuous without being continuous, for example
+\[I:W^{1,2}(\Omega)\longrightarrow\mathbb{R}_\infty,\qquad I(u):=\int_\Omega{\lvert\nabla u(x)\rvert^4\mathrm{d}x}.\]
+Then $f(A)=\lvert A\rvert^4$ is continuous (hence $I$ is lower semicontinuous) and convex (hence $I$ is convex), so \hyperlink{theorem_3_2_6}{Theorem 3.2.6} tells us that $I$ is weakly lower semicontinuous. However, $I$ is not continuous in all elements $u\in W^{1,4}(\Omega)$. Indeed, let $b\in W^{1,2}(\Omega)\setminus W^{1,4}(\Omega)$ and define $u_\varepsilon=u+\varepsilon b\in W^{1,2}(\Omega)$ for $\varepsilon>0$. Then $u_\varepsilon\not\in W^{1,4}(\Omega)$ and $u_\varepsilon\to u$ in $W^{1,2}(\Omega)$ strongly, but $I(u_\varepsilon)=+\infty$ for all $\varepsilon>0$, while $I(u)<\infty$.\\[11pt]
+
+Asking for continuity of $I$ might be too restrictive in some applications. To ensure weak lower semicontinuity, we can assume convexity.\\
+
+\hypertarget{theorem_3_4_6}{\textbf{\underline{Theorem 3.4.6}}}\\
+Let $\Omega\subset\mathbb{R}^d$ be open, bounded. Let $f:\Omega\times\mathbb{R}^m\times\mathbb{R}^{m\times d}\longrightarrow\mathbb{R}$ be a Carath\'eodory function such that
+\begin{itemize}
+	\item[(i)] the assignment $(u,A)\longmapsto f(x,u,A)$ is convex for almost all $x\in\Omega$,
+	\item[(ii)] $f(x,u,A)\geq\gamma(x)$ for some $\gamma\in L^1(\Omega)$ and almost all $x\in\Omega$.
+\end{itemize}
+Then
+\[I:W^{1,p}(\Omega;\mathbb{R}^m)\longrightarrow\mathbb{R}_\infty,\qquad I(u):=\int_\Omega{f(x,u(x),\nabla u(x))\mathrm{d}x}\]
+defines a weakly lower semicontinuous functional for any $p\in[1,\infty]$.\\
+
+\textit{Proof:}\\
+Assumption (i) shows that $I$ is convex. Hence, by \hyperlink{theorem_3_2_6}{Theorem 3.2.6} it suffices to show that $I$ is lower semicontinuous. Let $(u_n)_{n\in\mathbb{N}}\subset W^{1,p}(\Omega;\mathbb{R}^m)$, $u\in W^{1,p}(\Omega;\mathbb{R}^m)$ such that $u_n\to u$ in $W^{1,p}(\Omega;\mathbb{R}^m)$ for $n\to\infty$.\\
+
+We can find a subsequence $(u_{n_k})_{k\in\mathbb{N}}\subseteq(u_n)_{n\in\mathbb{N}}$ with $u_{n_k}(x)\to u(x)$ and $\nabla u_{n_k}(x)\to\nabla u(x)$ for almost all $x\in\Omega$ as $k\to\infty$. Continuity of $f(x,\cdot,\cdot)$ implies
+\[f(x,u_{n_k}(x),\nabla u_{n_k}(x))\to f(x,u(x),\nabla u(x))\]
+for $k\to\infty$ and almost all $x\in\Omega$. By Fatou's lemma, we conclude
+\begin{align*}
+	I(u)&=\int_\Omega{(f(x,u(x),\nabla u(x))-\gamma(x))\mathrm{d}x}+\int_\Omega{\gamma(x)\mathrm{d}x}\\
+	&\leq\liminf_{k\to\infty}{\int_\Omega{(f(x,u_{n_k}(x),\nabla u_{n_k}(x))-\gamma(x))}\mathrm{d}x}+\int_\Omega{\gamma(x)\mathrm{d}x}\\
+	&=\liminf_{k\to\infty}{I(u_{n_k})}.
+\end{align*}
+The whole argument applies to every subsequence of $(u_n)_{n\in\mathbb{N}}$, i.e., for every subsequence we can find a further subsequence for which the liminf-inequality holds. With that we conclude that the liminf-inequality holds for the whole sequence.\hfill$\blacksquare$\\[11pt]
+
+As mentioned before, continuity of $I$ is far too much. But asking for convexity in $u$ and $A$ in $f$ is still very restrictive. So we will work on other types of conditions which ensures weak lower semicontinuity. For example, it could be enough to ask for convexity only in $A$, because weak convergence $u_n\rightharpoonup u$ in $W^{1,p}(\Omega)$ can be improved to strong convergence in $L^q(\Omega)$ for suitable $q$ by Rellich's compact embedding. Therefore, we may drop in some sense the convexity assumption on $u$.\\[11pt]
+
+\hypertarget{theorem_3_4_7}{\textbf{\underline{Theorem 3.4.7}}}\\
+(Sufficient condition for weak lower semicontinuity)\\
+Let $\Omega\subset\mathbb{R}^d$ be an open and bounded Lipschitz domain. Let $f:\Omega\times\mathbb{R}^m\times\mathbb{R}^{m\times d}\longrightarrow\mathbb{R}$ be a Carath\'eodory function such that $A\longmapsto f(x,u,A)$ is convex for all $u\in\mathbb{R}^m$ and almost all $x\in\Omega$, and $f(x,u,A)\geq\gamma(x)$ for some $\gamma\in L^1(\Omega)$. Then the functional
+\[I:W^{1,p}(\Omega)\longrightarrow\mathbb{R}_\infty,\qquad I(u):=\int_\Omega{f(x,u(x),\nabla u(x))\mathrm{d}x}\]
+is weakly lower semicontinuous.\\
+
+See \cite[Theorem 3.23]{bernard_dacorogna_direct} for a general proof. Here, we only prove two more restrictive versions.\\[11pt]
+
+\hypertarget{theorem_3_4_8}{\textbf{\underline{Theorem 3.4.8}}}\\
+Let $\Omega,f$ and $I$ be as in \hyperlink{theorem_3_4_7}{Theorem 3.4.7}. Moreover, let $p>d$ and assume that for each $R>0$ there exist $h_R\in L^1(\Omega)$, $C_R>0$ and a modulus of continuity, that is, a continuous, nondecreasing function $\omega_R:[0,\infty)\longrightarrow[0,\infty)$ with $\omega_R(0)=0$ such that
+\[\lvert f(x,u,A)-f(x,v,A)\rvert\leq\omega_R(\lvert u-v\rvert)\cdot\left(h_R(x)+C_R\lvert A\rvert^p\right)\]
+for almost all $x\in\Omega$, all $u,v\in B_R(0)\subset\mathbb{R}^m$ and all $A\in\mathbb{R}^{m\times d}$.\\
+
+Then $I$ is weakly lower semicontinuous.\\
+
+\textit{Proof:}\\
+First note $I$ is well-defined by \hyperlink{lemma_3_4_2}{Lemma 3.4.2} since $f(\cdot,u,A)\geq\gamma$ in $\Omega$. To show that $I$ is weakly lower semicontinuous, let $(u_n)_{n\in\mathbb{N}}\subset W^{1,p}(\Omega;\mathbb{R}^m)$ and $u_*\in W^{1,p}(\Omega;\mathbb{R}^m)$ be such that $u_n\rightharpoonup u_*$ in $W^{1,p}(\Omega;\mathbb{R}^m)$ for $n\to\infty$. Then $u_n\to u_*$ in $C^0(\overline{\Omega};\mathbb{R}^m)$ by Rellich's compactness theorem. Therefore, there exists $R>0$ such that $\lvert u_n(x)\rvert\leq R$ and $\lvert u_*(x)\rvert\leq R$ for all $x\in\Omega$. We write
+\[I(u_n)=\underbrace{\int_\Omega{(f(x,u_n(x),\nabla u_n(x))-f(x,u_*(x),\nabla u_n(x)))\mathrm{d}x}}_{=:\mathcal{T}_n}+\int_\Omega{\underbrace{f(x,u_*(x),\nabla u_n(x))}_{=:F(x,\nabla u_n(x))}\mathrm{d}x}.\]
+
+\textit{Step 1:} $\mathcal{T}_n\to0$ as $n\to\infty$.
+\begin{itemize}
+	\item[] We have
+	\begin{align*}
+		\lvert\mathcal{T}_n\rvert&\leq\int_\Omega{\lvert f(x,u_n(x),\nabla u_n(x))-f(x,u_*(x),\nabla u_n(x))\rvert\mathrm{d}x}\\
+		&\leq\int_\Omega{\omega_R(\lvert u_n(x)-u_*(x)\rvert)\left(h_R(x)+C_R\lvert\nabla u_n(x)\rvert^p\right)\mathrm{d}x}\\
+		&\leq\omega_R\left(\lVert u_n-u_*\rVert_{C^0(\overline{\Omega})}\right)\left(\lVert h_R\rVert_{L^1(\Omega)}+C_R\lVert\nabla u_n\rVert_{L^p(\Omega)}^p\right),
+	\end{align*}
+	since $\omega_R$ is monotone. Since $(u_n)_{n\in\mathbb{N}}$ is weakly convergent, it is bounded, i.e. $\lVert\nabla u_n\rVert_{L^p(\Omega)}^p$ is bounded. Moreover, $\omega_R(\lVert u_n-u_*\rVert_{C^0(\overline{\Omega})})\to0$ as $n\to\infty$ because $\omega_R$ is continuous. Hence, $\mathcal{T}_n\to0$ as $n\to\infty$.\\
+\end{itemize}
+
+\textit{Step 2:} $\tilde{I}(u):=\int_\Omega{F(x,\nabla u(x))\mathrm{d}x}$ is weakly lower semicontinuous.
+\begin{itemize}
+	\item[] The function $\tilde{f}(x,u,A):=F(x,A)$ is a Carath\'eodory function, and $(u,A)\longmapsto\tilde{f}(x,u,A)$ is convex, and $\tilde{f}(x,u,A)\geq\gamma(x)$ for almost all $x\in\Omega$ (with $\gamma$ from the statement). Hence, \hyperlink{theorem_3_4_6}{Theorem 3.4.6} gives weak lower semicontinuity for $\tilde{I}$.\\
+\end{itemize}
+
+\textit{Step 3:} It holds $I(u_*)\leq\liminf_{n\to\infty}{I(u_n)}$.
+\begin{itemize}
+	\item[] Step 1. and 2. imply
+	\[\liminf_{n\to\infty}{I(u_n)}\geq\liminf_{n\to\infty}{\mathcal{T}_n}+\liminf_{n\to\infty}{\tilde{I}(u_n)}\geq0+\tilde{I}(u_*)=\tilde{I}(u_*)=I(u_*).\]
+\end{itemize}
+\hfill$\blacksquare$\\[11pt]
+
+If $p\leq d$, the space $W^{1,p}(\Omega;\mathbb{R}^m)$ does no longer embed (compactly) into $C^0(\overline{\Omega})$, but into $L^q(\Omega)$ if $1-\frac{d}{p}>-\frac{d}{q}$. By adjusting the assumptions on growth and continuity of $f$, we obtain a version for which we can show weak lower semicontinuity.\\
+
+\hypertarget{theorem_3_4_9}{\textbf{\underline{Theorem 3.4.9}}}\\
+Let $\Omega$, $f$ and $I$ be as in \hyperlink{theorem_3_4_7}{Theorem 3.4.7}. Let $1\leq p\leq d$ and $1\leq q<p^*:=\frac{dp}{d-p}$. Assume that there are $\widetilde{C}>0$, $\theta\in(0,1)$ and $\delta\in L^{q'}(\Omega)$, $\gamma\in L^{(\frac{q}{\theta})'}(\Omega)$ such that
+\begin{align*}
+	\lvert f(x,u,A)-f(x,v,A)\rvert&\leq\lvert u-v\rvert\left[\delta(x)+\widetilde{C}\left(\lvert u\rvert^{q-1}+\lvert v\rvert^{q-1}+\lvert A\rvert^{\frac{p}{q'}}\right)\right]\\
+	&\qquad\qquad+\lvert u-v\rvert^\theta\left[\gamma(x)+\widetilde{C}\left(\lvert u\rvert^{q-\theta}+\lvert v\rvert^{q-\theta}+\lvert A\rvert^{p\frac{q-\theta}{q}}\right)\right]
+\end{align*}
+for almost all $x\in\Omega$, all $u,v\in\mathbb{R}^m$, $A\in\mathbb{R}^{m\times d}$. Here, $\frac{1}{q}+\frac{1}{q'}=1$ and $\frac{1}{(q/\theta)}+\frac{1}{(q/\theta)'}=1$. Then $I$ is weakly lower semicontinuous on $W^{1,p}(\Omega;\mathbb{R}^m)$.\\
+
+\textit{Remark: In comparison to the previous case where we had the modulus of continuous, we here have to add the $\lvert u-v\rvert^\theta$-term.}\\
+
+\textit{Proof:}\\
+Let $(u_n)_{n\in\mathbb{N}}\subset W^{1,p}(\Omega;\mathbb{R}^m)$ such that $u_n\rightharpoonup u_*$ in $W^{1,p}(\Omega;\mathbb{R}^m)$. Then $u_n\to u_*$ in $L^q(\Omega;\mathbb{R}^m)$ by Rellich's compactness theorem. We proceed as in the proof for \hyperlink{theorem_3_4_8}{Theorem 3.4.8}, i.e., we split $I(u_n)$ into the two terms. The claim follows in the same way, and if we can show $\mathcal{T}_n\to0$ for $n\to\infty$ then we are done already (because the proofs for step 2. and 3. can literally be copied). We have
+\begin{align*}
+	\lvert\mathcal{T}_n\rvert&\leq\int_\Omega{\lvert f(x,u_n(x),\nabla u_n(x))-f(x,u_*(x),\nabla u_n(x))\rvert\mathrm{d}x}\\
+	&\leq\int_\Omega{\lvert u_n(x)-u_*(x)\rvert\left[\delta(x)+\widetilde{C}\left(\lvert u_n(x)\rvert^{q-1}+\lvert u_*(x)\rvert^{q-1}+\lvert\nabla u_n(x)\rvert^{\frac{p}{q'}}\right)\right]\mathrm{d}x}\\
+	&\qquad\qquad+\int_\Omega{\lvert u_n(x)-u_*(x)\rvert^\theta\left[\gamma(x)+\widetilde{C}\left(\lvert u_n(x)\rvert^{q-\theta}+\lvert u_*(x)\rvert^{q-\theta}+\lvert\nabla u_n(x)\rvert^{p\frac{q-\theta}{q}}\right)\right]\mathrm{d}x},
+\end{align*}
+and applying H\"older's inequality yields
+\begin{align*}
+	\lvert\mathcal{T}_n\rvert&\leq C\lVert u_n-u_*\rVert_{L^q(\Omega)}\left[\lVert\delta\rVert_{L^{q'}(\Omega)}+\big\lVert\lvert u_n\rvert^{q-1}\big\rVert_{L^{q'}(\Omega)}+\big\lVert\lvert u_*\rvert^{q-1}\big\rVert_{L^{q'}(\Omega)}+\big\lVert\lvert\nabla u_n\rvert^{p\frac{q-1}{q}}\big\rVert_{L^{q'}(\Omega)}\right]\\
+	&\qquad\qquad+C\big\lVert\lvert u_n-u_*\rvert^\theta\big\rVert_{L^{\frac{q}{\theta}}(\Omega)}\left[\lVert\delta\rVert_{L^{(\frac{q}{\theta})'}(\Omega)}+\big\lVert\lvert u_n\rvert^{q-\theta}\big\rVert_{L^{(\frac{q}{\theta})'}(\Omega)}\right]\\
+	&\qquad\qquad+C\big\lVert\lvert u_n-u_*\rvert^\theta\big\rVert_{L^{\frac{q}{\theta}}(\Omega)}\left[\big\lVert\lvert u_*\rvert^{q-\theta}\big\rVert_{L^{(\frac{q}{\theta})'}(\Omega)}+\big\lVert\lvert\nabla u_n\rvert^{p\frac{q-\theta}{q}}\big\rVert_{L^{(\frac{q}{\theta})'}(\Omega)}\right].
+\end{align*}
+We use that $\big\lVert\lvert v\rvert^{q-1}\big\rVert_{L^{q'}(\Omega)}=\lVert v\rVert_{L^q(\Omega)}^{q-1}$, and $\big\lVert\lvert\nabla v\rvert^{p\frac{q-1}{q}}\big\rVert_{L^{q'}(\Omega)}=\lVert\nabla v\rVert_{L^p(\Omega)}^{p/q'}$, and $\big\lVert\lvert v\rvert^\theta\big\rVert_{L^{\frac{q}{\theta}}(\Omega)}=\lVert v\rVert_{L^q(\Omega)}^\theta$, and $\big\lVert\lvert v\rvert^{q-\theta}\big\rVert_{L^{(\frac{q}{\theta})'}(\Omega)}=\lVert v\rVert_{L^q(\Omega)}^{q-\theta}$, and $\big\lVert\lvert \nabla v\rvert^{p\frac{q-\theta}{q}}\big\rVert_{L^{(\frac{q}{\theta})'}(\Omega)}=\lVert\nabla v\rVert_{L^p(\Omega)}^{p(q-\theta)/q}$.\\
+
+The weak convergence $u_n\rightharpoonup u$ in $W^{1,p}(\Omega;\mathbb{R}^m)$ implies that all the terms inside the brackets $[\dotsc]$ above can be controlled, i.e., are uniformly bounded in $n$, so that
+\[\lvert\mathcal{T}_n\rvert\leq M\left(\lVert u_n-u_*\rVert_{L^q(\Omega)}+\lVert u_n-u_*\rVert_{L^q(\Omega)}^\theta\right)\to0\]
+as $n\to\infty$.\hfill$\blacksquare$\\[11pt]
+
+\textbf{Remark 3.4.10}\\
+The assumptions of \hyperlink{theorem_3_4_8}{Theorem 3.4.8} and \hyperlink{theorem_3_4_9}{Theorem 3.4.9} demand continuity of $f$ with respect to $u$ which is not the case in \hyperlink{theorem_3_4_7}{Theorem 3.4.7}.\\[11pt]
+
+\hypertarget{theorem_3_4_11}{\textbf{\underline{Theorem 3.4.11}}}\\
+(Existence result in convex case; Ioffe's theorem)\\
+Let $\Omega\subset\mathbb{R}^d$ be an open, bounded Lipschitz domain. Let $f:\Omega\times\mathbb{R}^m\times\mathbb{R}^{m\times d}\longrightarrow\mathbb{R}$ be such that
+\begin{itemize}
+	\item[(i)] $f$ is a Carath\'eodory function,
+	\item[(ii)] $A\longmapsto f(x,u,A)$ is convex for almost all $x\in\Omega$ and all $u\in\mathbb{R}^m$, and there is $\gamma\in L^1(\Omega)$ such that $f(x,u,A)\geq\gamma(x)$ for almost all $x\in\Omega$,
+	\item[(iii)] there are quantities $p\in(1,\infty)$, $c_A>0$, $r\in[1,p)$, $\delta\in L^{\frac{p}{p-r}}(\Omega)$, $h\in L^1(\Omega)$ such that for all $(x,u,A)\in\Omega\times\mathbb{R}^m\times\mathbb{R}^{m\times d}$ it holds
+	\[f(x,u,A)\geq c_A\lvert A\rvert^p-\delta(x)\lvert u\rvert^r-h(x).\]
+\end{itemize}
+Let $u_0\in W^{1,p}(\Omega;\mathbb{R}^m)$ and $\varphi\in(W^{1,p}(\Omega;\mathbb{R}^m))'$ be given. Then there exists a minimizer of the functional
+\[I(u):=\int_\Omega{f(x,u(x),\nabla u(x))\mathrm{d}x}-\varphi(u)\]
+on $u_0+W_0^{1,p}(\Omega;\mathbb{R}^m)$, i.e., there exists $u_*\in u_0+W_0^{1,p}(\Omega;\mathbb{R}^m)$ such that
+\[I(u_*)=\inf\left\{I(u)\,\middle\vert\,u\in u_0+W_0^{1,p}(\Omega;\mathbb{R}^m)\right\}.\]
+
+\textit{Proof:}\\
+We obtain well-definedness of $I$ by \hyperlink{lemma_3_4_2}{Lemma 3.4.2} and assumptions (i), (ii). If $I(u)=+\infty$ for all $u\in u_0+W_0^{1,p}(\Omega;\mathbb{R}^m)$ then there is nothing to do. Assume that $I(\tilde{u})<\infty$ for some $\tilde{u}\in u_0+W_0^{1,p}(\Omega;\mathbb{R}^m)$, and consider the functional
+\[\tilde{I}:W_0^{1,p}(\Omega;\mathbb{R}^m)\longrightarrow\mathbb{R}_\infty,\qquad\tilde{I}(v):=I(u_0+v).\]
+Hence, if we put $\tilde{f}(x,v,A):=f(x,u_0(x)+v,\nabla u_0(x)+A)$, we can write
+\[\tilde{I}(v)=\int_\Omega{\tilde{f}(x,v(x),\nabla v(x))\mathrm{d}x}-\varphi(u_0+v).\]
+Make the following observations:
+\begin{itemize}
+	\item[(a)] Since $p\in(1,\infty)$, the space $W_0^{1,p}(\Omega;\mathbb{R}^m)$ is reflexive as a closed subspace of the reflexive space $W^{1,p}(\Omega;\mathbb{R}^m)$.
+	\item[(b)] With assumption (iii) we can estimate
+	\begin{align*}
+		\tilde{f}(x,v,A)&=f(x,u_0(x)+v,\nabla u_0(x)+A)\\
+		&\geq c_A\lvert\nabla u_0(x)+A\rvert^p-\delta(x)\lvert u_0(x)+v\rvert^r-h(x)\\
+		&\geq c_Ac_p\left(\lvert A\rvert^p-\lvert\nabla u_0(x)\rvert^p\right)-c_r\lvert\delta(x)\rvert\left(\lvert u_0(x)\rvert^r+\lvert v\rvert^r\right)-\lvert h(x)\rvert\\
+		&\geq c_Ac_p\lvert A\vert^p-c_r\lvert\delta(x)\rvert\lvert v\rvert^r-\left[c_Ac_p\lvert\nabla u_0(x)\rvert^p+c_r\lvert\delta(x)\rvert\lvert u_0(x)\rvert^r+\lvert h(x)\vert\right].
+	\end{align*}
+	The term in brackets is integrable, so that \hyperlink{theorem_3_4_3}{Theorem 3.4.3} implies for $\tilde{c}>0$, $\beta\in\mathbb{R}$
+	\[\tilde{I}(v)\geq\tilde{c}\lVert v\rVert_{W^{1,p}(\Omega)}^p+\beta-\lVert\varphi\rVert_{(W^{1,p}(\Omega))'}\left(\lVert u_0\rVert_{W^{1,p}(\Omega)}+\lVert v\rVert_{W^{1,p}(\Omega)}\right)\to+\infty\]
+	as $\lVert v\rVert_{W^{1,p}(\Omega)}\to+\infty$, because $p>1$. Hence, $\tilde{I}$ is coercive.
+	\item[(c)] Since $A\longmapsto\tilde{f}(x,u,A)$ is convex and $\tilde{f}(x,u,A)\geq\gamma(x)$, \hyperlink{theorem_3_4_7}{Theorem 3.4.7} implies that $\tilde{I}$ is weakly lower semicontinuous.
+\end{itemize}
+Hence, existence of a minimizer $\bar{u}\in W_0^{1,p}(\Omega;\mathbb{R}^m)$ for $\tilde{I}$ follows with \hyperlink{theorem_3_1_14}{Theorem 3.1.14}. Then $u_*:=\bar{u}+u_0$ is a minimizer for $I$ as desired.\hfill$\blacksquare$\\[11pt]
+
+\textbf{Remark 3.4.12}
+\begin{itemize}
+	\item[(a)] The constraint $u\in u_0+W_0^{1,p}(\Omega;\mathbb{R}^m)$ corresponds to Dirichlet boundary conditions $u\vert_{\partial\Omega}=u_0\vert_{\partial\Omega}$ in the trace sense.
+	\item[(b)] Uniqueness does not hold without some form of strict convexity.
+	\item[(c)] The case $r=p$ can be considered if $\delta$ is small, i.e. $\lvert\delta(x)\rvert<\frac{c_A}{C_P^p}$ with $C_P$ being the optimal constant in Poincar\'e inequality, so $\lVert u\rVert_{L^p(\Omega)}\leq C_P\lVert\nabla u\rVert_{L^p(\Omega)}$.
+	\item[(d)] If $\min\{m,d\}=1$ then convexity of $A\longmapsto f(x,u,A)$ is also necessary. See exercises and discussion of quasiconvexity later for general case.\\[11pt]
+\end{itemize}
+
+\textbf{Example 3.4.13}\\
+Let $\Omega\subset\mathbb{R}^d$ be an open, bounded Lipschitz domain. We want to apply the existence result to investigate existence for a semilinear elliptic partial differential equation. We search for $u:\Omega\longrightarrow\mathbb{R}^1$ satisfying
+\[\left\{\begin{array}{rl}
+	-\divergence{\alpha\nabla u}+g(\cdot,u)=0&\text{in }\Omega,\\
+	u=0&\text{on }\partial\Omega
+\end{array}\right.\]
+for some constant $\alpha>0$ and $g:\Omega\times\mathbb{R}\longrightarrow\mathbb{R}$ continuous. This is the Euler-Lagrange equation for the functional
+\[I:W_0^{1,p}(\Omega)\longrightarrow\mathbb{R}_\infty,\qquad u\longmapsto\int_\Omega{\frac{\alpha}{2}\lvert\nabla u(x)\rvert^2+G(x,u(x))\mathrm{d}x}\]
+with $\partial_uG(x,u)=g(x,u)$, i.e. $G(x,u)=\int_0^u{g(x,v)\mathrm{d}v}$. Notice that the choice of the integration domain for $G$ does not change the minimum of $I$.\\
+
+As the squared norm of the gradient appears in the integral, the natural choice is $p=2$ to ensure coercivity. We choose $g(x,u)=\beta(x)u+c_qu\lvert u\rvert^{q-2}+h(x)$, where $\beta,h\in L^\infty(\Omega)$, $c_q>0$ and $q>2$. Thus,
+\[G(x,u)=\frac{\beta(x)}{2}u^2+\frac{c_q}{q}\lvert u\rvert^q+h(x)u.\]
+We estimate
+\[G(x,u)\geq-\frac{\lVert\beta\rVert_{L^\infty(\Omega)}}{2}u^2-\lVert h\rVert_{L^\infty(\Omega)}\lvert u\rvert+\frac{c_q}{q}\lvert u\rvert^q\geq\widetilde{C}\in\mathbb{R},\]
+because $q>2$, and therefore
+\[I(u)\geq\frac{\alpha}{2}\lVert\nabla u\rVert_{L^2(\Omega)}^2+\widetilde{C}\vol{\Omega}\]
+which gives coercivity via Poincar\'e's inequality. Hence, \hyperlink{theorem_3_4_11}{Theorem 3.4.11} is applicable, i.e., we have existence of minimizers.\\
+
+However, also \hyperlink{theorem_3_4_8}{Theorem 3.4.8} and \hyperlink{theorem_3_4_9}{Theorem 3.4.9} can be applied since
+\begin{align*}
+	\lvert G(x,u)-G(x,v)\rvert&=\left\lvert\frac{\beta(x)}{2}(u-v)(u+v)+\frac{c_q}{q}(\lvert u\rvert^q-\lvert v\rvert^q)+h(x)(u-v)\right\rvert\\
+	&\leq\frac{\lVert\beta\rVert_{L^\infty(\Omega)}}{2}(\lvert u\rvert+\lvert v\rvert)\lvert u-v\rvert+\lVert h\rVert_{L^\infty(\Omega)}\lvert u-v\rvert+\widehat{C}\left(\lvert u\rvert^{q-1}+\lvert v\rvert^{q-1}\right)\lvert u-v\rvert,
+\end{align*}
+where we have used convexity $\frac{1}{q}\lvert v\rvert^q\geq\frac{1}{q}\lvert u\rvert^q+u\lvert u\rvert^{q-2}(v-u)$.\\
+
+If $d=1$ we have $p=2>d$, and then \hyperlink{theorem_3_4_8}{Theorem 3.4.8} can be directly applied for any $q\in(2,\infty)$. If $d\geq2$ then \hyperlink{theorem_3_4_9}{Theorem 3.4.9} holds for $q\in(2,\frac{2d}{d-2})$.\\[11pt]
+
+\hypertarget{example_3_4_14}{\textbf{Example 3.4.14}}\\
+(Karl Weierstra{\ss}, * 1815, $\dagger$ 1897)\\
+Consider the functional
+\[I:W^{1,p}(-1,1)\longrightarrow\mathbb{R},\qquad I(u):=\frac{1}{2}\int_{-1}^1{x^2(u'(x))^2\mathrm{d}x},\]
+so with volume density $f(x,A)=\frac{1}{2}\lvert x\rvert^2A^2$. This is convex in $A$, but $I$ is not coercive on $W^{1,p}(-1,1)$ for any $p\in(1,\infty)$. In the exercises we saw that a minimizer does not exist.\\[11pt]
+
+\hypertarget{example_3_4_15}{\textbf{Example 3.4.15}}\\
+(Oskar Bolza, * 1857, $\dagger$ 1942)\\
+We consider
+\[I:W_0^{1,4}(0,1)\longrightarrow\mathbb{R},\qquad I(u):=\int_0^1{(u(x))^4+(1-(u'(x))^2)^2\mathrm{d}x}.\]
+It turns out that this function is coercive on $W^{1,4}(0,1)$, but $A\longmapsto(1-A^2)^2$ is not convex. One can show via a sequence of zig-zag functions $(u_k)_{k\in\mathbb{N}}$ (similar as in \hyperlink{example_2_3_3}{Example 2.3.3}) that converges weakly to 0 in $W^{1,4}(0,1)$ that $I(u_k)\to0\ne I(0)=1$. In particular, a minimizer does not exist.\\[11pt]
+
+\hyperlink{example_3_4_14}{Example 3.4.14} and \hyperlink{example_3_4_15}{Example 3.4.15} lead to the question whether our developed conditions in Ioffe's theorem are even necessary. But the answer is no.\\[11pt]
+
+\textbf{Example 3.4.16}\\
+Let's consider
+\[I(u)=\int_0^1{f(u'(x))\mathrm{d}x}\quad\text{subject to}\quad u(0)=a,u(1)=b,\]
+with a convex function $f:\mathbb{R}\longrightarrow[0,\infty)$. Jensen's inequality gives
+\[I(u)=\int_0^1{f(u'(x))\mathrm{d}x}\geq f\left(\int_0^1{u'(x)\mathrm{d}x}\right)=f(b-a),\]
+and $u_*(x)=(b-a)x+a$ is therefore a minimizer. But coercivity is missing here.

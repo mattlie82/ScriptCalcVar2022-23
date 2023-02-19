@@ -1,0 +1,8 @@
+\section{Minimization Problems}
+The general topic in multidimensional calculus of variations is the question about minimizing problems. In the very basic setting we have a topological space $X$, some subset $M\subset X$ and a functional $I:M\longrightarrow\overline{\mathbb{R}}=\mathbb{R}\cup\{\pm\infty\}$. Typically, $X$ is a subset of an infinite-dimensional space, and $I$ is nonlinear in general. Now the task is to find a minimizer of $I$, i.e. find an element $u_*\in M$ such that $I(u_*)\leq I(u)$ for all $u\in M$.\\
+
+Often we have that $X$ is a function space, e.g. the space of continuously differentiable functions $C^1(\Omega,\mathbb{R}^m)$ or some Sobolev space, $W^{1,p}(\Omega,\mathbb{R}^m)$ for instance, where $\Omega\subset\mathbb{R}^d$ is supposed to be a bounded domain. The functional is very often of integral type, i.e.
+\[
+    I(u)=\int_\Omega{f(x,u(x),\nabla u(x))\mathrm{d}x}
+\]
+for some function $f:\Omega\times\mathbb{R}^m\times\mathbb{R}^{m\times d}\longrightarrow\mathbb{R}$. This is the classical framework, but one can also consider higher-order derivatives of $u$ or even more general $f$. In examples from physics, $I$ often represents energy, and then $f$ is also called \textit{energy density}.

@@ -1,0 +1,73 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\input{../header.tex}
+
+\begin{document}
+
+\exerciseSet{12}{February 7, 2023}
+
+\setcounter{AUFGABE}{39}
+
+
+\aaa{Rank-one affinity.} 
+Assume that
+$f:\R^{m\ti 2} \to \R$ 
+is rank-one affine,
+that is,
+both $f$ and $-f$ are rank-one convex.
+\begin{enumerate}
+\item[(a)] 
+Using the notation $A=(a_1,a_2)\in \R^{m\ti 2} $ with $a_1,a_2\in
+\R^m$, show that $f$ can be written in the form
+\[
+f(a_1,a_2) = \beta + b_1 \cdot a_1 + b_2\cdot a_2 + a_1\cdot (Ba_2),
+\]
+where $\beta \in \R$, $b_1,b_2\in \R^m$ and $B\in \R^{m\ti m}$. 
+\item[(b)]
+Conclude that the matrix $B$ is skew-symmetric. 
+\item[(c)]
+Show that there is $\bfbeta \in \R^{\tau(m,2)}$ such that 
+$f(A)=\beta + \langle \bfbeta, T(A)\rangle$. 
+\end{enumerate}
+
+
+\aaa{Quadratic densities.} Assume that $f:\R^{m\ti d} \to \R$ is
+quadratic, i.e.\ $f(A)=(MA){:} A $ for some $M\in
+\mathrm{Lin}(\R^{m\ti d}; \R^{m\ti d})$. Show the following equivalences:
+\begin{enumerate}
+\item[(a)]
+$f$ is convex $\iff f(A)\geq 0$ for all
+$A\in\R^{m\ti d}$. 
+\item[(b)]
+$f$ is polyconvex $\iff\exists\, \bfbeta
+\in \R^{\tau_2(m,d)}\ \forall\, A\in \R^{m\ti d}:\ f(A)  \geq \langle
+\bfbeta , T_2(A)\rangle$. 
+\item[(c)]
+$f$ is rank-one convex $\iff \forall\,\xi\in \R^m,\: \eta\in \R^{d}:\ f(\xi{\otimes}\eta)  \geq 0$.
+\end{enumerate}
+
+\aaa{Dacorogna's example.}
+Consider the matrices $A_1,A_2,A_3\in\R^{2\times 2}$ given by
+\[
+A_1 = \begin{pmatrix}
+1&0\\2&0
+\end{pmatrix},\quad
+A_2 = \begin{pmatrix}
+0&1\\0&1
+\end{pmatrix},
+\quad\text{and}\quad
+A_3 = \begin{pmatrix}
+-1&-1\\0&0
+\end{pmatrix}.
+\]
+The function $f:\R^{2\times2} \to\{0,\infty\}$ is defined via
+\[
+f(A) = \begin{cases}
+0&\text{if }A\in\{A_1,A_2,A_3\},\\
+\infty&\text{otherwise.}
+\end{cases}
+\]
+Show that $f$ is rank-one- but not poly-convex.
+
+\end{document}

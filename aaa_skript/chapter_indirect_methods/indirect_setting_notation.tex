@@ -1,0 +1,46 @@
+\section{Setting and Notation}
+For the whole chapter, consider integral functionals of the form
+\[I:X\longrightarrow\mathbb{R},\qquad I(u):=\int_\Omega{f(x,u(x),\nabla u(x))\mathrm{d}x}+\int_{\partial\Omega}{g(x,u(x))\mathrm{d}a},\]
+where the quantities are fixed as follows:
+\begin{itemize}
+	\item[(a)] For $d\geq1$, $\Omega\subset\mathbb{R}^d$ is a bounded domain (domain means open and simply connected) with piecewise smooth boundary $\partial\Omega$ (this means for example $C^1$-boundary or Lipschitz boundary so that in particular the outer normal on $\partial\Omega$ does exist).
+	\item[(b)] Our space of functions is $X=C^1(\overline{\Omega};\mathbb{R}^m)$ for some $m\geq1$.
+	\item[(c)] $f:\Omega\times\mathbb{R}^m\times\mathbb{R}^{m\times d}\longrightarrow\mathbb{R}$, $(x,u,A)\longmapsto f(x,u,A)$, called the \textit{volume density}.
+	\item[(d)] $g:\partial\Omega\times\mathbb{R}^m\longrightarrow\mathbb{R}$, $(x,u)\longmapsto g(x,u)$, called the \textit{boundary density}.
+\end{itemize}
+If nothing else is mentioned, there are no further assumptions on $f$ and $g$.\\
+
+Often, $u$ shall coincide with a given function $u_0$ on a part $\Gamma_D\subset\partial\Omega$ on the boundary, i.e. $u(x)=u_0(x)$ for all $x\in\Gamma_D$. We call $\Gamma_D$ the \textit{Dirichlet boundary} and $\Gamma_N:=\partial\Omega\setminus\Gamma_D$ the \textit{Neumann boundary}. Then set
+\[M:=\{u\in X\mid u|_{\Gamma_D}=u_0|_{\Gamma_D}\}.\]
+Defining $X_0:=\{u\in X\mid u|_{\Gamma_D}=0\}$, we see that $M=u_0+X_0$ which is an affine linear space.\\[11pt]
+
+We also need to fix some useful notations for derivatives. For $u\in X$, $i\in\{1,\dotsc,m\}$ and $j\in\{1,\dotsc,d\}$ we will write
+\[(\nabla u(x))_{ij}=\frac{\partial u_i}{\partial x_j}(x).\]
+Let $x\in\Omega$, $u\in\mathbb{R}^m$ and $A\in\mathbb{R}^{m\times d}$. For partial derivatives of first and second order of $f$ (and $g$ analogously) we write
+\begin{align*}
+	\partial_xf&:=\left(\frac{\partial f}{\partial x_j}\right)_{j=1,\dotsc,d}=\left(\frac{\partial f}{\partial x_1},\dotsc,\frac{\partial f}{\partial x_d}\right)\in\mathbb{R}^d,\\
+	\partial_uf&:=\left(\frac{\partial f}{\partial u_i}\right)_{i=1,\dotsc,m}=\left(\frac{\partial f}{\partial u_1},\dotsc,\frac{\partial f}{\partial u_m}\right)\in\mathbb{R}^m,\\
+	\partial_Af&:=\left(\frac{\partial f}{\partial A_{ij}}\right)_{\substack{i=1,\dotsc,m\\j=1,\dotsc,d}}=\begin{pmatrix}
+		\frac{\partial f}{\partial A_{11}}&\cdots&\frac{\partial f}{\partial A_{1d}}\\
+		\vdots&\ddots&\vdots\\
+		\frac{\partial f}{\partial A_{m1}}&\cdots&\frac{\partial f}{\partial A_{md}}
+	\end{pmatrix}\in\mathbb{R}^{m\times d},\\
+	\partial_u^2f&:=\left(\frac{\partial^2f}{\partial u_i\partial u_k}\right)_{i,k=1,\dotsc m}\in\mathbb{R}^{m\times m},\\
+	\partial_A\partial_uf&:=\left(\frac{\partial^2f}{\partial A_{ij}\partial u_k}\right)_{\substack{i,k=1,\dotsc m\\j=1,\dotsc,d}}\in\mathbb{R}^{m\times d\times m},\\
+	\partial_A^2f&:=\left(\frac{\partial^2f}{\partial A_{ij}\partial A_{k\ell}}\right)_{\substack{i,k=1,\dotsc m\\j,\ell=1,\dotsc,d}}\in\mathbb{R}^{m\times d\times m\times d}.
+\end{align*}
+Further let $v\in\mathbb{R}^d$, $B\in\mathbb{R}^{m\times d}$. For directional derivatives we write
+\begin{align*}
+	D_uf(x,u,A)[v]&=\partial_uf(x,u,A)\cdot v,\\
+	D_Af(x,u,A)[B]&=\partial_Af(x,u,A):B,\\
+	D_u^2f(x,u,A)[v]&=\sum_{i,k=1}^m{\frac{\partial^2 f(x,u,A)}{\partial u_i\partial u_k}v_iv_k},\\
+	D_AD_uf(x,u,A)[v,B]&=\sum_{i,k=1}^m{\sum_{j=1}^d{\frac{\partial^2 f(x,u,A)}{\partial A_{ij}\partial u_k}B_{ij}v_k}},\\
+	D_A^2f(x,u,A)[B]&=\sum_{i,k=1}^m{\sum_{j,\ell=1}^d{\frac{\partial^2f(x,u,A)}{\partial A_{ij}\partial A_{k\ell}}B_{ij}B_{k\ell}}}.
+\end{align*}
+For $D_uf$ and $D_Af$ we used the scalar product for vectors and matrices, respectively:
+\begin{align*}
+	u\cdot v&:=\sum_{i=1}^m{u_iv_i},\\
+	A:B&:=\sum_{i=1}^m{\sum_{j=1}^d{A_{ij}B_{ij}}}=\tr{B^\top A}.
+\end{align*}
+The divergence of a matrix-valued function is taken row-wise: For $A(x)\in\mathbb{R}^{m\times d}$ we have $\divergence{A(x)}\in\mathbb{R}^m$ with
+\[(\divergence{A(x)})_i:=\sum_{j=1}^d{\frac{\partial}{\partial x_j}A_{ij}(x)}.\]

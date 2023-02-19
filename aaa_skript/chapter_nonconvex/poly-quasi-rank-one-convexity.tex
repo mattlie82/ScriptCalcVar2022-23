@@ -1,0 +1,252 @@
+\section{Poly-, Quasi- and Rank-1-Convexity}
+
+We discuss different notions of non-convexity and their relevance for weak sequential lower semicontinuity of $I(u)=\int_\Omega{f(x,\nabla u(x))\mathrm{d}x}$. We will see the following relations:
+\[\text{convexity}\quad\Rightarrow\quad\text{poly-convexity}\quad\Rightarrow\quad\text{quasi-convexity}\quad\Rightarrow\quad\underset{(\text{+technical assumptions})}{\text{rank-1-convexity}}.\]
+We already have seen that convexity of the density $f$ is sufficient, and it is also necessary in case $\min\{m,d\}=1$. It turns out that quasi-convexity is sufficient and necessary in order to have weak lower semicontinuity. However quasi-convexity is hard to check, so one should avoid checking this property. In comparison, poly-convexity is more easy to check, and still sufficient for weak lower semicontinuity. Rank-1-convexity is also not difficult to verify but this is more suitable for excluding functional ones from further investigation.\\
+
+Poly-convexity is based on the minors of $A\in\mathbb{R}^{m\times d}$, i.e. the subdeterminants. In order to make our definitions for the notions of convexity, we need to introduce some notation first.\\[11pt]
+
+\begin{notation}
+Fix $A\in\mathbb{R}^{m\times d}$ and $s\in\{1,\dotsc,\min\{m,d\}\}$. For tuples $K=(k_1,\dotsc,k_s)$, $L=(l_1,\dotsc,l_s)$ where $1\leq k_1<k_2<k_3<\dotsc<k_s\leq m$ and $1\leq l_1<l_2<\dotsc<l_s\leq d$, we denote by $A_{K,L}=(A_{k_i,l_i})_{i,j=1}^s\in\mathbb{R}^{s\times s}$ the submatrix consisting of $K$-th rows and $L$-th columns, and by $a_{K,L}:=\det(A_{K,L})$ its $(K,L)$-th minor.\\
+
+Next, we define
+\[
+    T_s(A)=\left\{a_{K,L}\,\middle\vert\,
+    \begin{array}{c}
+	K,L\in\mathbb{N}^s\text{ such that }1\leq k_1<\dotsc<k_s\leq m\\
+	\text{and }1\leq l_1<\dotsc<l_s\leq d
+    \end{array}\right\}
+\]
+as the \textit{set of minors of order $s$}. We are able to choose
+\begin{itemize}
+	\item $\binom{d}{s}=\frac{d!}{(d-s)!s!}$ different tuples of column indices,
+	\item $\binom{m}{s}=\frac{m!}{(m-s)!s!}$ different tuples of row indices.
+\end{itemize}
+The number $\tau_s(m,d):=\#T_s(A)=\binom{m}{s}\binom{d}{s}$ is the 
+\textit{number of minors of order $s$}. By choosing a suitable order 
+of the minors, we can consider $T_s$ as a map 
+$T_s:\mathbb{R}^{m\times d}\longrightarrow\mathbb{R}^{\tau_s(m,d)}$.\\
+
+Finally, we define
+\[
+    T:\mathbb{R}^{m\times d}\longrightarrow\mathbb{R}^{\tau(m,d)},
+    \qquad T(A):=\left(T_1(A),\dotsc,T_{\min\{m,d\}}(A)\right),
+\]
+where $\tau(m,d):=\sum_{s=1}^{\min\{m,d\}}{\tau_s(m,d)}$.\\[11pt]
+\end{notation}
+
+\begin{example}
+Let $m=d=3$ and write
+\[
+    A=
+    \begin{pmatrix}
+	A_{11}&A_{12}&A_{13}\\
+	A_{21}&A_{22}&A_{23}\\
+	A_{31}&A_{32}&A_{33}
+    \end{pmatrix}\in\mathbb{R}^{3\times 3}.
+\]
+Then
+\begin{itemize}
+	\item[(a)] $T_1(A)=(A_{11},A_{12},A_{13},A_{21},A_{22},A_{23},A_{31},A_{32},A_{33})\in\mathbb{R}^9$.
+	\item[(b)] $T_3(A)=\det(A)\in\mathbb{R}^1$.
+	\item[(c)] $T_2(A)\in\mathbb{R}^9$ and contains the nine determinants of all $2\times2$-submatrices. This is -- up to $\mathbb{R}^9\simeq\mathbb{R}^{3\times3}$ and some signs -- exactly the cofactor matrix $\Cof{A}$ which is well known from linear algebra.
+\end{itemize}
+So, here $T(A)$ corresponds to $(A,\Cof{A},\det(A))\in\mathbb{R}^{19}$.
+\end{example}
+
+
+\begin{definition}
+Let $f:\mathbb{R}^{m\times d}\longrightarrow\mathbb{R}\cup\{+\infty\}$.
+\begin{itemize}
+	\item[(i)] $f$ is \textit{convex} if for all $A,B\in\mathbb{R}^{m\times d}$, all $\lambda\in[0,1]$ it holds
+	\[f(\lambda A+(1-\lambda)B)\leq\lambda f(A)+(1-\lambda)f(B).\]
+	\item[(ii)] $f$ is \textit{poly-convex} if $f$ is a convex function in its minors, that means, there exists a convex function $g:\mathbb{R}^{\tau(m,d)}\longrightarrow\mathbb{R}\cup\{+\infty\}$ such that $f(A)=g(T(A))$ for all $A\in\mathbb{R}^{m\times d}$.
+	\item[(iii)] $f$ is \textit{quasi-convex} if $f$ is Borel-measurable and if for all $A\in\mathbb{R}^{m\times d}$, all $\varphi\in C_c^\infty(B_1(0);\mathbb{R}^m)$ it holds
+	\[\int_{B_1(0)}{f(A+\nabla\varphi(x))\mathrm{d}x}\geq f(A)\vol{B_1(0)}.\]
+	\item[(iv)] $f$ is \textit{rank-1-convex} if for all $A,B\in\mathbb{R}^{m\times d}$ with $\Rank{A-B}=1$, all $\lambda\in[0,1]$ it holds
+	\[f(\lambda A+(1-\lambda)B)\leq\lambda f(A)+(1-\lambda)f(B).\]\\
+\end{itemize}
+\end{definition}
+
+
+\begin{remark}
+For $A,B\in\mathbb{R}^{2\times2}$ consider
+\[w:\mathbb{R}^2\longrightarrow\mathbb{R}^2,\qquad w(x):=\left\{\begin{array}{rl}
+	Ax&\text{if }x_1<0,\\
+	Bx&\text{if }x_1\geq0.
+\end{array}\right.\]
+For the choices $A=\begin{pmatrix}1&0\\0&0\end{pmatrix}$, $B=\begin{pmatrix}0&0\\0&1\end{pmatrix}$ the map $w$ is not continuous. As an exercise, one can show that the following are equivalent:
+\begin{itemize}
+	\item[(a)] $w$ is continuous.
+	\item[(b)] $\Rank{A-B}=1$.
+	\item[(c)] There exist $a\in\mathbb{R}^d$, $b\in\mathbb{R}^m$ with $A-B=a\otimes b$.\\[11pt]
+\end{itemize}
+\end{remark}
+
+\begin{remark}
+\begin{itemize}
+	\item[(a)] In the definition of poly-convexity, the function $g$ is in general not unique. For example consider $m=d=2$ and $f:\mathbb{R}^{2\times 2}\longrightarrow\mathbb{R}$, given by
+	\[f(A)=\lvert A\rvert^2=A_{11}^2+A_{22}^2+A_{21}^2+A_{12}^2=(A_{11}-A_{22})^2+(A_{12}+A_{21})^2+2\det(A).\]
+	We can choose $g_1(A,\delta)=\lvert A\rvert^2$ but also $g_2(A,\delta)=(A_{11}-A_{22})^2+(A_{12}+A_{21})^2+2\delta$, i.e., both are convex and satisfy $f(A)=g_1(T(A))=g_2(T(A))$.
+	\item[(b)] In the definition of quasi-convexity, we can equivalently consider arbitrary fixed, bounded, open and nonempty sets $D\subset\mathbb{R}^d$, i.e.,
+	\[\int_D{f(A+\nabla\varphi(x))\mathrm{d}x}\geq f(A)\vol{D},\]
+	and we can also take test functions $\varphi$ in the far more larger set $W_0^{1,\infty}(D;\mathbb{R}^m)$ instead of $C_c^\infty(D;\mathbb{R}^m)$. We will show this in the exercises.
+	\item[(c)] If $\min\{m,d\}=1$, then rank-1-convexity is the same as convexity because then $f$ is defined on vectors which have rank at most 1.\\[11pt]
+\end{itemize}
+\end{remark}
+
+\begin{theorem}
+Let $f:\mathbb{R}^{m\times d}\longrightarrow\mathbb{R}_\infty$ be continuous (in the sense of compactification, that means we equip $\mathbb{R}_\infty$ with the metric $d(x,y):=\lvert\arctan(x)-\arctan(y)\rvert$).
+\begin{itemize}
+	\item[(i)] If $f$ is convex, then it is also poly-convex.
+	\item[(ii)] If $f$ is poly-convex, then it is also quasi-convex.
+	\item[(iii)] If $f$ is quasi-convex and in addition finite, then it is also rank-1-convex.\\
+\end{itemize}
+\end{theorem}
+
+\begin{remark}
+\textit{Remark: In some of the statements the continuity assumption on $f$ can be weaken by e.g. imposing only Borel-measurability. We just need to make sure that the integral in the definition of quasi-convexity is well-defined. However, if $f$ is convex, then it is continuous anyway.}
+\end{remark}
+
+\begin{proof}
+\begin{itemize}
+	\item[(i)] Choose $g(T)=f(A)$ where $T=(A,\dotsc)\in\mathbb{R}^{\tau(m,d)}$ and $A$ denotes the minors of order 1.
+	\item[(ii)] Since $f$ is poly-convex, there exists $g:\mathbb{R}^{\tau(m,d)}\longrightarrow\mathbb{R}_\infty$ convex such that $f(A)=g(T(A))$. Let $\varphi\in C_c^\infty(B_1(0);\mathbb{R}^m)$ be given. Use Jensen's inequality and \hyperlink{theorem_4_1_10}{Theorem 4.1.10} to obtain
+	\begin{align*}
+		\int_{B_1(0)}{f(A+\nabla\varphi(x))\mathrm{d}x}&=\int_{B_1(0)}{g(T(A+\nabla\varphi(x)))\mathrm{d}x}\\
+		&\geq\vol{B_1(0)}g\left(\frac{1}{\vol{B_1(0)}}\int_{B_1(0)}{T(A+\nabla\varphi(x))\mathrm{d}x}\right)\\
+		&=\vol{B_1(0)}g(T(A))=\vol{B_1(0)}f(A),
+	\end{align*}
+	so $f$ is quasi-convex.
+	\item[(iii)] The third part will be discussed in the exercise lesson.\hfill$\blacksquare$\\[11pt]
+\end{itemize}
+\end{proof}
+
+\begin{lemma}[Gradient minors as divergence]
+\label{lem:MinorsAsDivergence}
+For $u\in C^3(\Omega;\mathbb{R}^m)$ and $s\in\{1,\dotsc,\min\{m,d\}\}$ we have
+\[\det\left(\frac{\partial(u_1,\dotsc,u_s)}{\partial(x_1,\dotsc,x_s)}\right)=\sum_{j=1}^s{\frac{\partial}{\partial x_j}\underbrace{\left((-1)^{j+1}u_1\det\left(\frac{\partial(u_2,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_j,\dotsc,x_s)}\right)\right)}_{=:P_j(u,\nabla u)}}=\divergence{P(u,\nabla u)},\]
+where $P=(P_1,\dotsc,P_s,0,\dotsc,0)$ with $d-s$ zeros. Here, we introduced the notation
+\[\frac{\partial(u_1,\dotsc,u_s)}{\partial(x_1,\dotsc,x_s)}=\left(\frac{\partial u_i}{\partial x_j}\right)_{i,j=1}^d\]
+which denotes the top left $(s\times s)$-submatrix of the Jacobian matrix of $u$, and $\frac{\partial(u_2,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_j,\dotsc,x_s)}$ denotes the submatrix of $\frac{\partial(u_1,\dotsc,u_s)}{\partial(x_1,\dotsc,x_s)}$ which is obtained by deleting the first row and $j$-th column.
+\end{lemma}
+
+
+\begin{remark}
+The main point is that the subdeterminants of the gradient have the divergence structure $\det(\nabla u_{K,L})=\divergence{P_{K,L}(u,\nabla u)}$, and $P_{K,L}$ has slightly better properties: It has one derivative less, the rest are still subdeterminants and the outer divergence can be moved to test functions. The latter is useful for e.g. weak convergence and weak formulations, because the divergence can be pushed to test functions.
+\end{remark}
+
+\begin{example}
+Before we move on to the proof, we will first check the formula for the special cases $s=1$ and $s=2$. For $s=1$ it is simple; we just have
+\[\frac{\partial u_1}{\partial x_1}=\frac{\partial}{\partial x_1}((-1)^2u_1\cdot1).\]
+For $s=2$ we have to calculate a little bit
+\begin{align*}
+	\det\left(\frac{\partial(u_1,u_2)}{\partial(x_1,x_2)}\right)&=\frac{\partial u_1}{\partial x_1}\frac{\partial u_2}{\partial x_2}-\frac{\partial u_1}{\partial x_2}\frac{\partial u_2}{\partial x_1}\\
+	&\overset{!}{=}\frac{\partial}{\partial x_1}\left((-1)^2u_1\frac{\partial u_2}{\partial x_2}\right)+\frac{\partial}{\partial x_2}\left((-1)^3u_1\frac{\partial u_2}{\partial x_1}\right)\\
+	&=\frac{\partial u_1}{\partial x_1}\frac{\partial u_2}{\partial x_2}+u_1\frac{\partial^2u_2}{\partial x_1\partial x_2}-\frac{\partial u_1}{\partial x_2}\frac{\partial u_2}{\partial x_1}-u_1\frac{\partial^2u_2}{\partial x_2\partial x_1}.
+\end{align*}
+Since $u$ is in particular a $C^2$-function we can make use of Schwarz's theorem in order to see that the equation is valid.
+\end{example}
+
+\begin{proof}[Proof of Lemma \ref{lem:MinorsAsDivergence}]
+First use Laplace expansion for the determinant, then the product rule for derivatives, to get
+\begin{align*}
+	\det\left(\frac{\partial(u_1,\dotsc,u_s)}{\partial(x_1,\dotsc,x_s)}\right)&=\sum_{j=1}^s{(-1)^{j+1}\frac{\partial u_1}{\partial x_j}\det\left(\frac{\partial(u_2,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_j,\dotsc,x_s)}\right)}\\
+	&=\sum_{j=1}^s{\frac{\partial}{\partial x_j}\left((-1)^{j+1}u_1\det\left(\frac{\partial(u_2,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_j,\dotsc,x_s)}\right)\right)}\\
+	&\qquad\qquad-u_1\sum_{j=1}^s{(-1)^{j+1}\frac{\partial}{\partial x_j}\det\left(\frac{\partial(u_2,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_j,\dotsc,x_s)}\right)}.
+\end{align*}
+The first term on the right-hand-side is exactly the one term on the right-hand-side in the claim. Hence, it remains to show that $u_1M_s=0$, where
+\[M_s:=\sum_{j=1}^s{(-1)^{j+1}\frac{\partial}{\partial x_j}\det\left(\frac{\partial(u_2,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_j,\dotsc,x_s)}\right)}.\]
+More precisely, we have to show $M_s\equiv0$ since $u_1$ is arbitrary, and we are going to do this via induction on $s$.\\
+
+\textit{Base case:} $s=2$.
+\begin{itemize}
+	\item[] Use Schwarz's theorem and $u\in C^3(\Omega;\mathbb{R}^m)\subset C^2(\Omega;\mathbb{R}^m)$ to justify the last equality
+	\[M_2=\sum_{j=1}^2{(-1)^{j+1}\frac{\partial}{\partial x_j}\det\left(\frac{\partial u_2}{\partial(x_1,\dotsc,\widehat{x}_j,\dotsc,x_2)}\right)}=\frac{\partial^2u_2}{\partial x_1\partial x_2}-\frac{\partial^2u_2}{\partial x_2\partial x_1}=0.\]
+\end{itemize}
+
+\textit{Induction step:} $s-1\rightsquigarrow s$.
+\begin{itemize}
+	\item[] On each determinant appearing in $M_s$ we use, as in the beginning of the proof, Laplace expansion and product rule in order to get
+	\begin{align*}
+		M_s&=\sum_{j=1}^s{(-1)^{j+1}\frac{\partial}{\partial x_j}\det\left(\frac{\partial(u_2,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_j,\dotsc,x_s)}\right)}\\
+		&=\sum_{j=1}^s{(-1)^{j+1}\frac{\partial}{\partial x_j}\Biggl[\sum_{\ell=1}^{j-1}{\frac{\partial}{\partial x_\ell}\left((-1)^{\ell+1}u_2\det\left(\frac{\partial(u_3,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_\ell,\dotsc,\widehat{x}_j,\dotsc,x_s)}\right)\right)}}\\
+		&\qquad\qquad\sum_{\ell=j+1}^s{\frac{\partial}{\partial x_\ell}\left((-1)^\ell u_2\det\left(\frac{\partial(u_3,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_j,\dotsc,\widehat{x}_\ell,\dotsc,x_s)}\right)\right)}\\
+		&\qquad\qquad-u_2\sum_{\ell=1}^{j-1}{(-1)^{\ell+1}\frac{\partial}{\partial x_j}\det\left(\frac{\partial(u_3,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_\ell,\dotsc,\widehat{x}_j,\dotsc,x_s)}\right)}\\
+		&\qquad\qquad-u_2\sum_{\ell=j+1}^s{(-1)^\ell\frac{\partial}{\partial x_j}\det\left(\frac{\partial(u_3,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_j,\dotsc,\widehat{x}_\ell,\dotsc,x_s)}\right)}\Biggr].
+	\end{align*}
+	The last two sums together are zero because they form a sum of type $M_{s-1}$, hence we can use induction hypothesis. So we are left with
+	\begin{align*}
+		M_s&=\sum_{j=1}^s{\Biggl[\sum_{\ell=1}^{j-1}{(-1)^{j+\ell}\frac{\partial^2}{\partial x_j\partial x_\ell}\left(u_2\det\left(\frac{\partial(u_3,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_\ell,\dotsc,\widehat{x}_j,\dotsc,x_s)}\right)\right)}}\\
+		&\qquad\qquad\sum_{\ell=j+1}^s{(-1)^{j+\ell+1}\frac{\partial^2}{\partial x_j\partial x_\ell}\left(u_2\det\left(\frac{\partial(u_3,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_j,\dotsc,\widehat{x}_\ell,\dotsc,x_s)}\right)\right)}\Biggr]\\
+		&=\sum_{1\leq\ell<j\leq s}{(-1)^{j+\ell}\frac{\partial^2}{\partial x_j\partial x_\ell}\left(u_2\det\left(\frac{\partial(u_3,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_\ell,\dotsc,\widehat{x}_j,\dotsc,x_s)}\right)\right)}\\
+		&\qquad\qquad+\sum_{1\leq j<\ell\leq s}{(-1)^{j+\ell+1}\frac{\partial^2}{\partial x_j\partial x_\ell}\left(u_2\det\left(\frac{\partial(u_3,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_j,\dotsc,\widehat{x}_\ell,\dotsc,x_s)}\right)\right)}.
+	\end{align*}
+	Interchanging indices in the second term gives with Schwarz's theorem (here we really need $u\in C^3(\Omega;\mathbb{R}^m)$)
+	\begin{align*}
+		M_s&=\sum_{1\leq\ell<j\leq s}{\left((-1)^{j+\ell}+(-1)^{j+\ell+1}\right)\frac{\partial^2}{\partial x_j\partial x_\ell}\left(u_2\det\left(\frac{\partial(u_3,\dotsc,u_s)}{\partial(x_1,\dotsc,\widehat{x}_\ell,\dotsc,\widehat{x}_j,\dotsc,x_s)}\right)\right)}\\
+		&=0.
+	\end{align*}
+\end{itemize}
+\end{proof}
+
+\begin{theorem}[Minors are quasi-affine]
+Let $s\in\{1,\dotsc,\min\{m,d\}\}$, and $D\subset\mathbb{R}^d$ open, bounded Lipschitz domain. Then, for all $A\in\mathbb{R}^{m\times d}$ and all $\psi\in W_0^{1,s}(D;\mathbb{R}^m)$ it holds
+\[\int_D{T_s(A+\nabla\psi(x))\mathrm{d}x}=\vol{D}T_s(A).\]
+\end{theorem}
+
+\begin{proof}
+Set
+\[J_s(\psi)=\int_D{T_s(A+\nabla\psi(x))\mathrm{d}x}\]
+for $\psi\in C_c^\infty(D;\mathbb{R}^m)$. We show $J_s(\psi)=J_s(0)$, i.e., that $J$ is a Null-Lagrangian. Pick ordered row and column indices $K,L\in\mathbb{N}^s$, i.e., $K=(k_1,\dotsc,k_s)$, $L=(\ell_1,\dotsc,\ell_s)$, $1\leq k_1<\dotsc<k_s\leq s$, $1\leq\ell_1<\dotsc<\ell_s\leq s$. Set $u(x)=Ax+\psi(x)$, $w(x)=Ax$. Note that $\supp{u-w}\subset\mathrel\subset D$, and $u$ and $w$ agree close to the boundary. By \hyperlink{lemma_4_1_7}{Lemma 4.1.7} we have
+\[\det((\nabla u)_{K,L})=\sum_{j=1}^s{\frac{\partial}{\partial x_{\ell_j}}\underbrace{\left((-1)^{j+1}u_{k_1}\det\left(\frac{\partial(u_{k_2},\dotsc,u_{k_s})}{\partial(x_{\ell_1},\dotsc,\widehat{x}_{\ell_j},\dotsc,x_{\ell_s})}\right)\right)}_{=:P_j(u,\nabla u).}}.\]
+Writing $P_{K,L}=(P_1,\dotsc,P_s)$, integration over $D$ yields
+\begin{align*}
+	\int_D{\det((\nabla u(x))_{K,L})\mathrm{d}x}&=\int_D{\divergence{P_{K,L}(u(x),\nabla u(x))}\mathrm{d}x}\\
+	&=\int_{\partial D}{P_{K,L}(u(x),\nabla u(x))\cdot\nu(x)\mathrm{d}a}\\
+	&=\int_{\partial D}{P_{K,L}(w(x),\nabla w(x))\cdot\nu(x)\mathrm{d}a}\\
+	&=\int_D{\divergence{P_{K,L}(w(x),\nabla w(x))}\mathrm{d}x}\\
+	&=\int_D{\det((\nabla w(x))_{K,L})\mathrm{d}x}=\int_D{\det(A_{K,L})\mathrm{d}x},
+\end{align*}
+where we have used Gau{\ss} theorem in the second and fourth line, and $\supp{u-w}\subset\mathrel\subset D$ in the third line. Since $K,L\in\mathbb{N}^s$ were arbitrary, we conclude that the assertion is true for $\psi\in C_c^\infty(D;\mathbb{R}^m)$. Now we use density of $C_c^\infty(D;\mathbb{R}^m)$ in $W_0^{1,s}(D;\mathbb{R}^m)$ and continuity of $J_s$ on $W_0^{1,s}(D;\mathbb{R}^m)$. Since $J_s$ is constant on the dense subset $C_c^\infty(D;\mathbb{R}^m)$, we get $J_s(\psi)=J_s(0)$ for all $\psi\in W_0^{1,s}(D;\mathbb{R}^m)$.
+\end{proof}
+
+\textbf{Warning!} The reverse implications
+\[\text{rank-1-convexity}\quad\Rightarrow\quad\text{quasi-convexity}\quad\Rightarrow\quad\text{poly-convexity}\quad\Rightarrow\quad\text{convexity}\]
+do in general \underline{not} hold!\\[11pt]
+
+\begin{example}
+\begin{itemize}
+	\item[(a)] (Poly-convex $\not\Rightarrow$ convex) For $m=d=2$ consider $f(A)=\det(A)$. First note that $f$ is convex by taking the convex (even linear) function $g(A,\delta)=\delta$. But $f$ is not convex, e.g. take
+	\[A_0:=\begin{pmatrix}-1&-2\\2&1\end{pmatrix},\qquad A_1:=\begin{pmatrix}1&-2\\2&-1\end{pmatrix},\qquad\frac{1}{2}A_0+\frac{1}{2}A_1=\begin{pmatrix}0&-2\\2&0\end{pmatrix},\]
+	and for these matrices we have $f(A_0)=3=f(A_1)$, but $f(\frac{1}{2}A_0+\frac{1}{2}A_1)=4$.
+	\item[(b)] (Quasi-convex $\not\Rightarrow$ poly-convex) We consider the family of functions for $\gamma\in\mathbb{R}$
+    \[
+        f_\gamma:\mathbb{R}^{2\times 2}\longrightarrow\mathbb{R},\qquad f_\gamma(A):=\lvert A\rvert^2\left(\lvert A\rvert^2-2\gamma\det(A)\right).
+    \]
+	In \cite{AliDac1992EQFP}, it was proven that there exists some $\varepsilon>0$ such that the following four assertions hold:
+	\begin{itemize}
+		\item[(1)] $f_\gamma$ is convex if and only if $\lvert\gamma\rvert\leq\frac{2}{3}\sqrt{2}$.
+		\item[(2)] $f_\gamma$ is poly-convex if and only if $\lvert\gamma\rvert\leq1$.
+		\item[(3)] $f_\gamma$ is quasi-convex if and only if $\lvert\gamma\rvert\leq1+\varepsilon$.
+		\item[(4)] $g_\gamma$ is rank-1-convex if and only if $\lvert\gamma\rvert\leq\frac{2}{\sqrt{3}}$.
+	\end{itemize}
+	\item[(c)] (Rank-1-convex $\not\Rightarrow$ quasi-convex, \v{S}ver\'ak's example, 1992) Consider the case $d=2$, $m\geq3$, and again a family of functions, namely
+	\[f_{\alpha,\beta}(A)=g(P(A))+\alpha\left(\lvert A\rvert^2+\lvert A\rvert^4\right)+\beta\lvert A-P(A)\rvert^2\]
+	for $\alpha,\beta>0$, and where
+	\[P:\mathbb{R}^{3\times 2}\longrightarrow\mathbb{R}^{3\times 2},\qquad P\left((A_{ij})_{\substack{1\leq i\leq 3\\1\leq j\leq 2}}\right):=\begin{pmatrix}
+		A_{11}&0\\
+		0&A_{22}\\
+		\frac{1}{2}(A_{31}+A_{32})&\frac{1}{2}(A_{31}+A_{32})
+	\end{pmatrix}.\]
+	and
+	\[g:\mathbb{R}^{3\times 2}\longrightarrow\mathbb{R},\qquad g\left((P_{ij})_{\substack{1\leq i\leq 3\\1\leq j\leq 2}}\right)=-P_{11}P_{22}P_{31}.\]
+	In \cite[Part I, Chapter 7, 7.3 Generalized Convexity Notions and Envelopes, Example 7.10]{Rind2018CV} one can read the following:
+	\begin{itemize}
+		\item[(1)] For $\alpha>0$ sufficiently small, for all $\beta>0$ the function $f_{\alpha,\beta}$ is \underline{not} quasi-convex.
+		\item[(2)] For every $\alpha>0$ there exists $\beta_\alpha>0$ such that $f_{\alpha,\beta_\alpha}$ is rank-1-convex.\\
+	\end{itemize}
+
+	Until now (January 2023), the case $m=d=2$ is still a major unsolved problem.
+\end{itemize}
+\end{example}

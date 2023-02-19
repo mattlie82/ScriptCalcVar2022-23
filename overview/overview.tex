@@ -1,0 +1,216 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\usepackage[width=16cm,height=22cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage{microtype}
+\usepackage{epsfig,amsmath,amsfonts,amssymb,latexsym,mathtools,enumitem}
+\usepackage{bef_alex,color,relsize,tikz}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+% Change format of top-level list items
+\setlist[enumerate,1]{label*=\arabic*,font=\bfseries,before=\normalfont}
+% Reset formatting for subsequent levels; label type makes 1.1, legal-style labels
+% \setlist[itemize,2]{label*=.\arabic*,font=\normalfont,before=\normalfont}
+% \setlist[enumerate,2]{label*=.\arabic*,font=\normalfont,before=\normalfont}
+
+\setlength\headheight{2.4cm}
+
+\rhead{\includegraphics[height=1.8cm]{wiaslogo-2010.pdf}}
+\chead{
+    \hspace{1.5cm}
+    \begin{minipage}[b]{8cm}
+    \flushleft 
+    \small
+    \textsc{Calculus of Variations}\\
+    Winter term 2022/23\\
+    Dr.~Thomas Eiter \&
+    Dr.~Matthias Liero\\
+    Melanie Koser \&
+    Anastasija Pe\v{s}i\'{c}
+    \end{minipage}
+}
+
+\lhead{\includegraphics[height=1.8cm]{husiegel_bw_op.png}}
+
+\cfoot{\thepage}
+
+\setlength\parindent{0pt}
+
+\pagestyle{fancy}
+
+
+\begin{document}
+
+
+\vspace{1.5em}
+\begin{center}
+\Large{\textsc{Overview}}\\
+\end{center}
+
+\renewcommand{\labelenumi}{\arabic{enumi}.} 
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}
+
+
+\begin{enumerate}
+    \item \textbf{Introduction}
+    \begin{enumerate}
+        \item Minimization problems
+        \begin{itemize}
+            \item general task of finding a minimizer
+        \end{itemize}
+        
+        \item Historical examples
+        \begin{itemize}
+            \item Isoperimetric problem, Brachistochrone problem, minimal surface, ground states in quantum mechanics
+        \end{itemize}
+        
+        \item Two approaches
+        \begin{itemize}
+            \item Indirect vs.\ direct method
+            \item Examples by Weierstrass/Young: existence is not trivial
+        \end{itemize}
+    \end{enumerate}
+
+    \item \textbf{Classical methods}
+    \begin{enumerate}
+        \item Setting and notation
+        \begin{itemize}
+            \item Integral functionals with volume and boundary density
+        \end{itemize}
+        \item The Euler--Lagrange equations
+        \begin{itemize}
+            \item definition of $n$-th variation and critical points
+            \item Theorem 2.4: sufficiently regular critical points satisfy Euler--Lagrange equations
+            \item Examples: minimal surface, heat conduction, shortest connection
+            \item Noether's theorem (special cases), application to Brachistochrone problem, minimal surface of revolution
+        \end{itemize}
+        
+        \item Extreme points
+        \begin{itemize}
+            \item weak/strong local minimizers
+            \item Theorem 2.15: Necessary and sufficient condition for weak local minimizers (second variation)
+            \item Theorem 2.16: Necessary condition by Legendre--Hadamard
+            \item Example: linear elasticity
+        \end{itemize}
+        
+        \item Quasiconvexity and the Weierstrass condition
+        \begin{itemize}
+            \item definition of quasiconvexity
+            \item Theorem 2.23: quasiconvexity as necessary condition for strong local minimizers
+            \item Theorem 2.24: Weierstrass necessary condition
+            \item Theorem 2.25: Weierstrass sufficient condition in one dimension
+            \item comparison of rank-one convexity, quasiconvexity and convexity
+        \end{itemize}
+    \end{enumerate}
+    \newpage
+    \item \textbf{Functional analytic existence results}
+    \begin{enumerate}
+        \item Abstract theory
+        \begin{itemize}
+            \item definition of the direct problem
+            \item solution in the finite-dimensional case
+            \item Theorem 3.4: uniform convexity and continuity yield  unique minimizer
+            \item Theorem 3.12: coercivity and weak lower semicontinuity yield minimizer (in reflexive space)
+            \item Theorem 3.13: characterization of weak/strong lower semicontinuity via epigraph and sublevel sets
+        \end{itemize}
+        
+        \item Convex functionals
+        \begin{itemize}
+            \item Theorem 3.18: convexity and lower semicontinuity imply weak lower semicointinuity
+            \item Corollary 3.19: coercivity, convexity and lower semicontinuity yield minimizer (in reflexive space)
+            \item definition and properties of subdifferential and Gateaux derivative
+        \end{itemize}
+        
+        \item Lebesgue and Sobolev spaces
+        \begin{itemize}
+            \item Reminder: Properties of Lebesgue spaces
+            \item Definition of weak derivative and Sobolev spaces, fundamental properties
+            \item embedding theorems by Sobolev and Rellich, trace theorem
+            \item Theorem 3.38: Poincaré inequality
+        \end{itemize}
+        
+        \item Integral functionals in the convex case
+        \begin{itemize}
+            \item Lemma 3.40: well-definedness if $f$ Carathéodory function and lower $p$-bound
+            \item Theorem 3.41: Coercivity from suitable lower bound (using Poincaré)
+            \item Theorem 3.44: weak lower semicontinuity from convexity of $A\mapsto f(x,u,A)$ (without proof)
+            \item proofs under suitable continuity conditions w.r.t.~$u$
+            \item Theorem 3.47: existence of minimizers
+            \item Example: semilinear, elliptic PDE
+            \item counter-examples: Weierstrass (not coercive), Bolza (not convex)
+        \end{itemize}
+        
+        \item Weak Euler--Lagrange equations
+        \begin{itemize}
+        \item Counter-example for well-defined Euler-Lagrange equations (Ball--Mizel)
+            \item Theorem 3.53: Growth conditions that ensure Gateaux differentiability 
+            \item Example with $p$-Laplacian
+        \end{itemize}
+        \item Minimization with constraints
+        \begin{itemize}
+            \item Examples: Isoperimetric problem, Eigenvalue problems (finite- and infinite-dimensional), obstacle problem
+            \item Theorem 3.57: Abstract existence result for weak seq. closed subsets of reflexive Banach spaces
+            \item Discussion: When is a subset weak seq. closed (Mazur lemma, Rellich lemma)? Example: Obstacle problem
+            \item Theorem 3.60: Euler--Lagrange equations via Lagrange-multipliers for equality constraint (abstract)
+            \item Theorem 3.61: Implicit function theorem in Banach spaces
+            \item Example: Eigenvalue of Laplacian
+        \end{itemize}
+    \end{enumerate}
+    \item \textbf{Nonconvex problems}
+        \begin{itemize}
+            \item Motivation: Physical principles (objectivity) require non-convexity of $A\mapsto f(x,u,A)$ 
+        \end{itemize}
+    \begin{enumerate}
+        \item Poly-, quasi-, and rank-one-convexity
+        \begin{itemize}
+            \item Definitions: Minors, convexity, poly-convexity, quasi-convexity, rank-one-convexity
+            \item Remarks: Poly-convexity representation not unique, Larger class of functions and general bounded domains in definition of quas-convexity
+            \item Theorem 4.3: convex implies poly-convex, implies, quasi-convex. implies rank-one convex (proof only for first and second implications, third implication as exercise)
+            \item Lemma 4.4: Minors can be written as divergence
+            \item Theorem 4.5: Minors are quasi-affine (needed for implication poly- $\Leftrightarrow$ quasi-convex)
+            \item Counter-examples for reverse implications
+        \end{itemize}
+        \item Poly-convexity as sufficient condition for wlsc
+        \begin{itemize}
+            \item Theorem 4.6: Weak continuity of gradient minors
+            \item Discussion: Weak closedness of gradient minors
+            \item Counter-example: Set of minors for general matrix-valued fields is not weak seq.\ closed
+        \end{itemize}
+        \item Quasi-convexity and weak lower-semicontinuity
+        \begin{itemize}
+            \item Vitali covering lemma
+            \item Theorem 4.10: Quasi-convexity is necessary and sufficient (with growth condition)
+        \end{itemize}
+        \item Application: Nonlinear elasticity
+        \begin{itemize}
+            \item Setting: Reference configuration, deformed configuration, stored-elastic energy density, elastic energy
+            \item Invariance under rigid-body transformations and other relevant physical properties
+            \item Lemma: Objective, isotropic, poly-convex densities
+            \item Example: Ogden materials
+            \item Ball's existence theorem for nonlinear elastostatics
+        \end{itemize}
+    \end{enumerate}
+    \item \textbf{$\boldsymbol{\Gamma}$-convergence of functionals}
+    \begin{enumerate}
+
+        \item Abstract theory
+        \begin{itemize}
+        \item Definition 5.1: $\Gamma$-convergence
+        \item Theorem 5.2: Stability under continuous perturbations
+        \item Definition 5.4: Equi-coercivity
+        \item Fundamental theorem of $\Gamma$-convergence
+        \item $\Gamma$-limits are lower semi-continuous
+        \item Lemma 5.7: Recovery sequences for dense subsets
+        \end{itemize}
+        \item Homogenization theory
+        \begin{itemize}
+        \item Theorem 5.9: $\Gamma$-limits in strong and weak topolgy
+        \item Theorem 5.10: $\Gamma$-limit for functionals on Sobolev spaces in one-dimensional case
+        \end{itemize}
+        \item Dimension reduction
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}

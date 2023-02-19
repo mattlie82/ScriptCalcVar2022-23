@@ -1,0 +1,106 @@
+% Allgemeines Layout
+\documentclass[a4paper, 12pt]{book}
+\usepackage{geometry}
+\geometry{top=30mm, left=25mm, right=25mm, bottom=30mm, headheight=15mm, footskip=15mm}
+\usepackage[english]{babel}
+\usepackage{csquotes}
+% Gestaltung der Kopf- und Fußzeilen
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead[L]{}
+\fancyhead[R]{\nouppercase{\rightmark}}
+\fancyfoot[C]{\thepage}
+
+% Gestaltung des Inhaltsverzeichnisses
+\usepackage{tocloft}
+\setlength{\cftchapnumwidth}{2.5em}
+\setlength{\cftsecnumwidth}{2.5em}
+
+% Gestaltung von Überschriften
+\usepackage{titlesec}
+% \titleformat{\chapter}[block]{\Huge\bfseries}{\center{Chapter \thechapter}\\[1ex]}{0pt}{\normalfont\centering\huge\sffamily\bfseries}
+% \titleformat{\section}{\normalfont\Large\sffamily\bfseries}{\thesection.}{1em}{}
+% \titleformat{\subsection}{\normalfont\large\sffamily\bfseries}{\thesubsection.}{1em}{}
+% \titleformat{\paragraph}{\center\large\sffamily\bfseries}{\theparagraph}{1em}{}
+
+% Weitere Pakete
+\usepackage[colorlinks, linkcolor = black]{hyperref} % Referenzen, Links
+\usepackage{amssymb} % Mathematische Symbole
+\usepackage{amsmath} % Mathematische Symbole
+\usepackage{amsthm}
+\usepackage{stmaryrd} % Für align-Umgebung
+\usepackage{mathtools} % \xrightharpoonup
+\usepackage{esint} % \fint
+\usepackage{tikz} % Tikz ist kein Zeichenprogramm
+\usetikzlibrary{decorations.pathreplacing} % Geschweifte Klammern (genutzt in Beispiel 1.2.3)
+\usetikzlibrary{hobby,patterns.meta}
+\usepackage[mathcal]{euscript} % Schönere Kalligraphen für \mathcal
+
+\usepackage{biblatex}
+\addbibresource{references.bib}
+% Hilfsbefehle
+\newcommand{\longhookrightarrow}{\lhook\joinrel\longrightarrow}
+\newcommand{\clonghookrightarrow}{\overset{c}{\longhookrightarrow}}
+
+\newcommand{\vol}[1]{\operatorname{vol}\mathopen{}\left(#1\right)\mathclose{}}
+\newcommand{\diam}[1]{\operatorname{diam}\mathopen{}\left(#1\right)\mathclose{}}
+\newcommand{\interior}[1]{\operatorname{int}\mathopen{}\left(#1\right)\mathclose{}}
+\newcommand{\Lin}[2]{\operatorname{Lin}\mathopen{}\left(#1,#2\right)\mathclose{}}
+
+\newcommand{\divergence}[1]{\operatorname{div}\mathopen{}\left(#1\right)\mathclose{}}
+\newcommand{\supp}[1]{\operatorname{supp}\mathopen{}\left(#1\right)\mathclose{}}
+\newcommand{\epi}[1]{\operatorname{epi}\mathopen{}\left(#1\right)\mathclose{}}
+\DeclareMathOperator*{\esssup}{ess\,sup}
+
+\newcommand{\sgn}[1]{\operatorname{sgn}\mathopen{}\left(#1\right)\mathclose{}}
+\newcommand{\SO}[1]{\operatorname{SO}\mathopen{}\left(#1\right)\mathclose{}}
+
+\newcommand{\tr}[1]{\operatorname{tr}\mathopen{}\left(#1\right)\mathclose{}}
+\newcommand{\Sym}[1]{\operatorname{Sym}\mathopen{}\left(#1\right)\mathclose{}}
+\newcommand{\Cof}[1]{\operatorname{Cof}\mathopen{}\left(#1\right)\mathclose{}}
+\newcommand{\Rank}[1]{\operatorname{Rank}\mathopen{}\left(#1\right)\mathclose{}}
+
+
+\newtheorem{theorem}{Theorem}[section]
+
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{corollary}[theorem]{corollary}
+
+
+% ========== Dokument ==========
+\begin{document}
+    \input{mcov_titelseite}
+    \tableofcontents
+
+    \include{chapter_introduction/introduction_introduction}
+    \input{chapter_introduction/introduction_minimization_problems}
+    \input{chapter_introduction/introduction_examples}
+    \input{chapter_introduction/introduction_two_approaches}
+
+
+    \include{chapter_indirect_methods/indirect_introduction}
+    \input{chapter_indirect_methods/indirect_setting_notation}
+    \input{chapter_indirect_methods/indirect_euler_lagrange}
+    \input{chapter_indirect_methods/indirect_extreme_points}
+    \input{chapter_indirect_methods/indirect_quasiconvex_weierstrass}
+
+    \include{chapter_convex/convexcase_introduction}
+    \input{chapter_convex/convexcase_func_ana}
+    \input{chapter_convex/convexcase_convex_functionals}
+    \input{chapter_convex/convexcase_function_spaces}
+    \input{chapter_convex/convexcase_integral_functionals}
+    \input{chapter_convex/convexcase_weak_euler_lagrange}
+    \input{chapter_convex/convexcase_constraints}
+
+    \input{chapter_nonconvex/einleitung}
+    \include{chapter_nonconvex/poly-quasi-rank-one-convexity}
+    \include{chapter_nonconvex/poly-convexity}
+    \include{chapter_nonconvex/quasi-convexity-wlsc}
+
+    \printbibliography
+
+\end{document}

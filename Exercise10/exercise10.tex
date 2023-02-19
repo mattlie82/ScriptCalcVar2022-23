@@ -1,0 +1,79 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\input{../header.tex}
+
+\begin{document}
+
+\exerciseSet{10}{January 24, 2023}
+
+\setcounter{AUFGABE}{32}
+
+
+
+\aaa{Existence result for constrained minimization.} Prove the following theorem from the lecture:
+
+Let $X$ denote a reflexive Banach space, and let $M\subset X$ be a non-empty, weakly sequentially closed subset.
+If $I:X\to \R_\infty$ is coercive on $M$ and weakly sequentially lower semicontinous, then there exists a minimizer $u_*\in M$ solving $I(u_*) = \inf_{\wt u \in M}I(\wt  u)$. 
+
+
+\aaa{Poincar\'e inequality revisited.}
+In the lecture, we have proven the Poincar\'e inequality on a bounded domain 
+$\Omega$ in the form
+\[
+\forall\, u\in\rmW^{1,p}_0(\Omega):\quad \int_\Omega |u(x)|^p \dd x \leq C_\Omega^p \int_\Omega |\nabla u(x)|^p\dd x,
+\]
+where $C_\Omega=\mathrm{diam}(\Omega) = \sup\{|x{-}x'|\,|\,x,x'\in\Omega\}$.
+
+\begin{itemize}
+\item[(a)] Consider the functionals $I_p(u) = \int_\Omega |\nabla u|^p\dd x$ and $J_p(u) = \int_\Omega |u(x)|^p\dd x$ on $\rmW^{1,p}_0(\Omega)$. Show that there exists $u_*\in \rmW^{1,p}_0(\Omega)$ that minimizes $I_p$ over $\{u\in \rmW^{1,p}_0(\Omega)\,|\, J_p(u) = 1\}$. What is the connection to the Poincar\'e inequality above?
+
+\item[(b)] For $p=2$ and $\Omega=\left]0,\ell\right[\subset \R^1$, show that the optimal constant $C_\text{opt}>0$ in the Poincar\'e inequality is $C_\text{opt} < C_\Omega =\ell$ by explicitly solving the Euler--Lagrange equations for $I_2$ and $J_2$.
+\end{itemize}
+
+\aaa{Gateaux and Fr\'echet differentials.}  Consider the Hilbert space $X=\rmL^2(\Omega;\R^m)$ and the 
+functional $I(u)=\int_\Omega g(u(x))\dd x $, where $g\in \rmC^1(\R^m)$
+satisfies 
+\[
+\exists\, C>0 \ \forall\, a,b\in \R^m:\quad |g(a{+}b)- g(a)| \leq
+C(1{+}|a|) | b|.
+\]
+\begin{itemize}
+\item [(a)] 
+Establish the Gateaux differentiability with $\rmD^\rmG I(u)[v] =
+\int_\Omega \pl_u g(u(x))\cdot v(x)\dd x$, i.e.\ for all $u,v\in X$ we have 
+$\delta I(u;v):= \lim_{t\searrow 0} \frac1t \big( I(u{+}tv) - I(u)\big)
+=  \rmD^\rmG I(u)[v]$.
+\item[(b)] 
+Show that $\rmD^\rmG I(u)$ is the Fr\'echet derivative $\rmD^\rmF
+I(u)$ if additionally 
+there exist $\theta\in {]0,1]}$ and $C>0$
+such that $ |\pl_u g(a)-\pl_u g(b)| \leq C_2
+\big(1{+}|a|{+}|b|\big) ^{1-\theta} |a{-}b|^\theta$ for all $a,b\in
+\R^m$.
+\item[(c)] 
+Now consider the case $X=\rmL^1(\Omega)$ with $\Omega={]0,\ell[}
+\subset \R^1$ and the functional $I(u)=\int_\Omega g(u(x)) \dd x $
+with $g(u)=u^3/(1{+}u^2)$. Show that $I$ is Gateaux differentiable at
+$u=0$ but not Fr\'echet differentiable. 
+%
+\end{itemize}
+
+\aaa{Variational inequalities}. Let $X$ be a reflexive Banach space and $K\subset X$
+be a closed and convex subset. Let $I:X\to \R$ be convex and Fr\'echet differentiable on $X$.
+
+\begin{itemize}
+\item[(a)]Show that the minimizer $u_*\in K$ satisfies
+\[
+I(u_*) = \inf_{\wt u\in K} I(\wt u)~\Leftrightarrow~
+\rmD^\rmF I(u_*)[v{-}u_*]\geq 0~\forall\, v\in K~\Leftrightarrow~
+-\rmD^\rmF I(u_*)\in\mathrm{N}_K(u_*)\subset X',
+\]
+where $\mathrm{N}_K(u_*) :=\{\ell\in X'\,|\,\ell(v{-}u_*)\geq 0 ~\forall v\in K\}$ is the outer normal cone of $K$ in $u_*\in X$.
+\item[(b)] Let $\chi_K:X\to \{0,+\infty\}$ denote the convex indicator function of the set $K$, i.e.,
+$\chi_K(u) = 0$ if $u\in K$ and $\chi_K(u) =+\infty$ otherwise. Show that $\chi_K$ is a convex and lower semicontinuous functional on $X$ and that the subdifferential of $\chi_K$
+is given by the outer normal cone.
+\item[(c)] Consider the functional $\wt I:X\to \R_\infty$ given via $\wt I(u) = I(u)+\chi_K(u)$. Show that 
+$u_*$ minimizes $\wt I$ if and only if it minimizes $I$ over $K$.
+\end{itemize}
+\end{document}

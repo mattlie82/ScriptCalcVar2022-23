@@ -1,0 +1,147 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[width=16cm]{geometry}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\dd}{\,\mathrm{d}}
+\newcommand{\wh}{\widehat}
+\newcommand{\wt}{\widetilde}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{remark}[theorem]{Remark}
+
+
+\begin{document}
+\setcounter{section}{5}
+\setcounter{subsection}{2}
+\subsection{Dimension reduction via $\boldsymbol{\Gamma}$-convergence}
+In the last example, we discuss the derivation of an effective lower-dimensional model for a thin structure.
+
+Let $\omega\subset \R^{d-1}$ denote an open and bounded domain with Lipschitz boundary. For a small parameter $\eps>0$, we introduce the \emph{thin}
+domain $\Omega_\eps := \omega\times \left]0,\eps\right[$ and consider a \emph{strictly} convex function $f:\R^{d} \to \R$. We assume that $f$ has quadratic growth, i.e., there exist constants $c_1,c_2,c_3>0$
+such that
+\[
+\forall A\in\R^d:\quad c_1|A|^2 -c_2\leq f(A) \leq c_3(1+|A|^2).
+\]
+(The quadratic growth is not essential and can be replaced with more general $p$-growth for $1<p<\infty$.)
+On the space $H^1(\Omega_\eps)$ ($m=1$), we introduce the family of functionals
+\[
+I_\eps(u) = \int_{\Omega_\eps}f(\nabla u)\dd x.
+\]
+We want to answer the question, whether the sequence $I_\eps$ defined on the $d$-dimensional domain $\Omega_\eps$ has a $\Gamma$-limit given on the lower-dimensional domain $\omega$.
+
+To this end, we first have to make the dependence on the parameter $\eps>0$ in the domain of integration more explicit by performing a change of variables: Let $x' := (x_1,\ldots, x_{d-1})\in \omega$
+denote the \emph{horizontal} coordinates. We introduce $y \in\Omega_1$ via $y = (y',y_d) = (x', x_d/\eps)$ such that $y_d\in\left]0,1\right[$. With a function $u:\Omega_\eps\to \R$, 
+we associate $\wt u:\Omega_1\to \R$ via $u(x',x_d) = \wt u(x',x_d/\eps)$. We obtain the following relation for the gradients of $u$ and $\wt u$
+\begin{equation}
+\nabla_x u (x) = \begin{pmatrix}
+\nabla_{y'} \wt u(y)\\ \frac{1}{\eps}\partial_{y_d}\wt u(y),
+\end{pmatrix}
+\end{equation}
+where $\nabla_{y'} \wt u\in\R^{d-1}$ denotes the \emph{horizontal} gradient. Inserting the transformation into the functionals $I_\eps$
+leads to
+\[
+I_\eps(u) = \int_{\Omega_\eps}f(\nabla u)\dd x = \eps\int_{\Omega_1}f\Big(\nabla_{y'}\wt u,\frac{1}{\eps}\partial_{y_d}\wt u\Big)\dd y=:\eps \wt I_\eps(\wt u).
+\]
+Note that we get the factor $\eps$ due to the substitution in the integral $\int_{\Omega_\eps} f\dd x= \eps \int_{\Omega_1}\wt f \dd y$.
+ The crucial point is that the growth assumption on $f$ leads to
+ the estimate
+ \begin{equation}\label{eq:lowerBound}
+     \wt I_\eps(\wt u) \geq c_1\Big(\|\nabla_{y'}\wt u\|^2_{L^2(\Omega_1)}+\frac{1}{\eps^2}\|\partial_{y_d}\wt u\|^2_{L^2(\Omega_1)}\Big) -c_2|\Omega_1|\qquad\forall \wt u\in H^1(\Omega_1)
+ \end{equation}
+ In particular, if $\wt u_\eps $ is a sequence such that $\wt u_\eps\rightharpoonup \wt u$ in $H^1(\Omega_1)$ as $\eps\to0$
+ \emph{and}  $\sup_{\eps >0}\wt I_\eps(\wt u_\eps) < \infty$ we get that $\partial_{y_d}\wt u_\eps \to \partial_{y_d} \wt u = 0$ strongly in $L^2(\Omega_1)$. In  this case, we can identify $\wt u \in H^1(\Omega_1)$ with a function $w \in H^1(\omega)$ such that $\wt u(y',y_d) = w(y')$. In this sense, we have \emph{reduced the dimension} from $d$ to $d{-}1$ dimensions.
+
+By the above discussion, the limit of $\wt I_\eps(\wt u_\eps)$ can be finite only for limits $\wt u = \lim_{\eps\to 0}\wt u_\eps$ satisfying $\partial_{y_d} \wt u = 0$. Thus, we expect that the 
+$\Gamma$-limit of $\wt I_\eps$ is obtained by minimizing the effect of the derivative in this direction: We define the function
+$g:\R^{d-1}\to \R$ via the minimization problem
+\[
+g(A') = \min\{f(A',b)\,|\, b\in \R\}.
+\]
+Note that $g$ satisfies the same quadratic growth. Moreover, since $f$ is strictly convex has quadratic growth, a unique minimizer
+$b=b(A')\in R$ exists for $A'\in\R^{d-1}$. We check that $g$ is also strictly convex: Indeed, for $A_0',A_1'\in\R^{d-1}$ and $\theta \in [0,1]$ define $A'_\theta = (1{-}\theta)A'_0 +\theta A_1'$ and consider the unique minimizers $b_0 = b(A'_
+0)$ and $b_1 = b(A'_
+1)$ in the definition of $g(A_0')$ and $g(A_1')$, respectively. 
+Let us set $b_\theta = (1{-}\theta)b_0 +\theta b$, then, we have that
+\[
+g(A_\theta') \leq f(A'_\theta, b_\theta) < (1{-}\theta)f(A_0',b_0) +\theta f(A_1',b_1) = (1{-}\theta)g(A_0') +\theta g(A_1').
+\]
+
+
+\setcounter{theorem}{10}
+ \begin{theorem}The family of (transformed) functionals $\wt I_\eps$
+ $\Gamma$-converges with respect to the weak topology on $H^1(\Omega_1)$ to the functional
+ \[
+ \wt I_0 (\wt u ) = \begin{cases}\displaystyle
+ \int_{\Omega_1} g(\nabla_{y'} \wt u) \dd y &\text{if }\partial_{y_d}\wt u = 0\text{ a.e.\ in }\Omega_1\\
+ +\infty&\text{otherwise}.
+ \end{cases}
+ \]
+ \end{theorem}
+
+\begin{proof} 
+\emph{1. $\liminf$-estimate. }Let us consider a sequence 
+$\wt u_\eps \to \wt u $ in $H^1(\Omega_1)$. We can assume that 
+$\partial_{y_d}\wt u = 0$, otherwise the estimate is trivial. Indeed, if $\partial_{y_d}\wt u \neq 0$, the estimate in \eqref{eq:lowerBound} yields that  $\liminf_{\eps \to 0} \wt I_\eps(\wt u_\eps) = +\infty$. The construction of $g$ gives the estimate
+\[
+I_\eps(\wt u_\eps)  = \int_{\Omega_1}f\Big(\nabla_{y'}\wt u,\frac{1}{\eps}\partial_{y_d}\wt u\Big)\dd y \geq  \int_{\Omega_1} g(\nabla_{y'} \wt u_\eps)\dd y.
+\]
+Since $g$ is convex, the right-hand side defines a weakly lower semicontinuous functional on $H^1(\Omega_1)$, and we can pass to the limit $\eps\to 0$ to find
+\[
+\liminf_{\eps\to 0 }I_\eps(\wt u_\eps) \geq  \int_{\Omega_1} g(\nabla_{y'} \wt u)\dd y = \wt I_0(\wt u).
+\]
+\emph{2. Recovery sequence. }It is sufficient to construct a recovery sequence for limits $\wt u$ with $\partial_{y_d} \wt u = 0$.
+Otherwise, the recovery sequence can be chosen as the constant sequence $\wt u _\eps \equiv  \wt u$ such that $\wt I_{\eps} (\wt u_\eps) \to \infty = \wt I_0(\wt u)$ by \eqref{eq:lowerBound}.
+
+Hence, let $\wt u(y',y_d) = w(y')$ with $w\in H^1(\omega)$ be given and let $b=b(y')\in L^2(\omega)$ denote the unique minimizer
+for $A' = \nabla_{y'} \wt u$ in the definition of $g$ (note that $f$ has quadratic growth). A recovery sequence has to satisfy
+\[
+\nabla_{y'} \wt u_\eps = \nabla_{y'}\wt u + o(1)\quad\text{and}
+\quad \partial_{y_d}\wt u_\eps = \eps b\quad\text{as }\eps\to 0.
+\]
+Thus, a natural candidate would be $\wt u_\eps(y',y_d) = 
+\wt u(y') + \eps y_d  b(y')$ (affine with respect to $y_d$).
+Unfortunately, $b\notin H^1(\omega)$ such that $\wt u_\eps\notin H^1(\Omega_1)$. Thus, we have to use in addition an approximation argument and consider for $\delta>0$ an approximation $b_\delta\in H ^1(\omega)$ such that $\|b-b_
+\delta\|_{L^2(\omega)} \leq \delta$. We then define 
+$\wt u_\eps^\delta(y',y_d) = 
+\wt u(y') + \eps y_d  b_\delta(y')$ with
+\[
+\nabla_{y'}\wt u_\eps^\delta = 
+\nabla_{y'}\wt u + \eps y_d \nabla_{y'} b_\delta\quad\text{and}\quad
+\partial_{y_d}\wt u_\eps = \eps b_\delta.
+\]
+We compute
+\begin{align*}
+    \wt I_\eps(\wt u_\eps^\delta) &= \int_{\Omega} f\big(\nabla_{y'}\wt u + \eps y_d \nabla_{y'} b_\delta, b_\delta\big)\dd y\\
+    & = \int_{\Omega} g(\nabla_{y'}\wt u ) +\big\{f(\nabla_{y'}\wt u + \eps y_d \nabla_{y'} b_\delta, b_\delta) - f(\nabla_{y'}\wt u, b)\big\}\dd y\\
+    &=\wt I_0(\wt u ) + \wt{\mathcal{R}}_\eps^\delta.
+\end{align*}
+It remains to show that the remainder is arbitrarily small. We use the local Lipschitz continuity of $f$ (comp. Sheet 8, Exercise 27), namely, there exists $K>0$ such that
+\[
+|f(A_1',b_1') - f(A'_2,b_2')|
+\leq K\big(1+|A_1'| + |A_2'| + |b_1| + |b_2|\big)
+(|A_1'{-}A_2'| + |b_1{-}b_2|).
+\]
+With this estimate and Hölder's inequality, we get
+\begin{align*}
+\mathcal{R}_\eps^\delta
+&\leq K\int_{\Omega_1}(1+|\nabla_{y'}\wt u|+\eps|y_d\nabla_{y'}b_\delta| + |b| + |b_\delta|) \big(
+\eps|y_d\nabla_{y'} b_\delta| +|b{-}b_\delta| \big)\dd y\\
+&\leq \wt C(1+
+\|\nabla_{y'} \wt u\|_{L^2(\Omega_1)} + 
+\eps \|y_d\nabla_{y'} b_\delta\|_{} +
+\|b_\delta\|_{L^2(\Omega_1)}+ \|b\|_{L^2(\Omega_1)})\\&
+\qquad\times\big(\eps\|y_d\nabla_{y'} b_\delta\|_{L^2(\Omega_1)}
++\|b{-}b_\delta\|_{L^2(\Omega_1)}\big).
+\end{align*}
+We choose $\delta = \delta(\eps)$ such that 
+$\delta(\eps) \to 0$ as $\eps\to 0$ and $\|y_d\nabla_{y'} b_{\delta(\eps)}\| \leq \frac{C} {\sqrt{\eps}}$. Thus, we conclude
+that $\mathcal{R}_\eps^{\delta(\eps)} \leq C(1+\sqrt{\eps})(\sqrt{\eps} + \delta(\eps))$, which shows that $\wt u_\eps^{\delta(\eps)}$ is
+indeed a recovery sequence.
+\end{proof}
+
+ \begin{remark}
+ The fact that $g$ is still convex does not transfer to the poly- or quasi-convex case.
+ \end{remark}
+\end{document}

@@ -1,0 +1,93 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\input{../header.tex}
+
+\begin{document}
+
+\exerciseSet{9}{January 17, 2023}
+
+\setcounter{AUFGABE}{29}
+
+\aaa{Uniqueness of minimizers.} We call a function $g:\R^m\times \R^{m\times d}\to \R $ partially strictly convex if 
+\[
+g\big(\theta u_0+(1{-}\theta)u_1,\theta A_0+(1{-}\theta)A_1\big)
+\leq \theta g(u_0,A_0) + (1{-}\theta)g(u_1,A_1)
+\]
+for $(u_0,A_0),\,(u_1,A_1)\in\R^m\times\R^{m\times d}$ and $\theta\in[0,1]$
+and if this inequality is \underline{strict} in the case that $A_0\neq A_1$ and $\theta\in\left]0,1\right[$.
+
+\begin{itemize}
+\item[(a)] Let $\Omega\subset \R^d$ be an open, bounded Lipschitz domain, and
+ $f:\Omega\times\R^m\times\R^{m\times d}\to[0,\infty[$ be a Carath\'eodory function that is partially strictly convex with respect to $(u,A)$. Show that
+ the functional $I(u)= \int_\Omega f(x,u,\nabla u)\dd x$, for $u\in u_0 + \rmW^{1,p}_0(\Omega,\R^m)$, has at most one minimizer.
+ \item[(a)] Find examples of functions $g:\R^m\times \R^{m\times d}\to \R $ that are partially strictly convex but not strictly convex.
+\end{itemize}
+
+\aaa{Properties of convex functions.} Let $f:\R^n\to \R$ be convex.
+\begin{itemize}
+\item[(a)] Show that $f$ is locally bounded. \\
+\emph{Hint}: It is sufficient to consider cubes $Q_R=[{-}R,R]^n$ and convex combinations of their vertices.
+\item[(b)] Show that $f$ is locally Lipschitz-continuous by proving the estimate
+\[
+|f(A_1)-f(A_2)| \leq \frac{\max_{|\wt A|\leq R} f(\wt A) - \min_{|\wt A|\leq R}f(\wt A)}{R-r}|A_1{-}A_2|
+\]
+for $A_1,A_2\in B_r(0)$, $0<r<R$.
+\item[(c)] Use the previous estimate to show that if $f$ is differentiable and satisfies the  estimate $|f(A)|\leq C(1+|A|^p)$ for some $C>0$ and $p\in\left]1,
+\infty\right[$, then there exists $\wt C>0$ such that $|\pl_A f(A)|^{p'}\leq \wt C(1+|A|)^p$,
+where $p'=p/(p-1)$.
+\end{itemize}
+
+
+\aaa{Convexity is necessary for weak lower semicontinuity.}
+Let $\Omega\subset\R^d$ be an open, bounded Lipschitz domain, and
+$f:\R^d\to[0,\infty[$ be continuous. For $1<p<\infty$ consider the functional
+$I(u)=\int_\Omega f(\nabla u)\dd x$ on $\rmW^{1,p}(\Omega)$. 
+Show that 
+if $I$ is weakly lower semicontinuous on $\rmW^{1,p}(\Omega)$, then $f$ is convex.
+
+\emph{Hint}: For $a,b\in\R^d$ and $\lambda\in\left]0,1\right[$ 
+consider the sequence 
+\[u_k(x) = (\lambda a + (1{-}\lambda) b)\cdot x+\frac{1}{k} \wt\chi_\lambda (kx\cdot(b{-}a))\] 
+where $\wt\chi_\lambda:\R\to \R$ 
+is the 1-periodic extension of the piecewise affine function $\chi_\lambda$ with
+$\chi_\lambda'(t) = -(1{-}\lambda)$ for $t\in]0,\lambda[$, $\chi_\lambda'(t) = \lambda$ for $t\in\left]\lambda,1\right[$, and $\chi_\lambda(0)=0$.
+% see Barbara's script 12+13_FinalWS21_22Co...
+
+
+
+
+
+
+% \aaa{Gateaux and Fr\'echet differentials.} {\footnotesize (Ren\'e E. Gateaux
+% 1889--1914,  Maurice R. Fr\'echet
+% 1878 - 1973)} Consider the Hilbert space $X=\rmL^2(\Omega;\R^m)$ and the 
+% functional $I(u)=\int_\Omega g(u(x))\dd x $, where $g\in \rmC^1(\R^m)$
+% satisfies 
+% \[
+% \exists\, C>0 \ \forall\, a,b\in \R^m:\quad |g(a{+}b)- g(a)| \leq
+% C(1{+}|a|) | b|.
+% \]
+% \begin{itemize}
+% \item[(a)] 
+% Establish the Gateaux differentiability with $\rmD^\rmG I(u)[v] =
+% \int_\Omega \pl_u g(u(x))\cdot v(x)\dd x$, i.e.\ for all $u,v\in X$ we have 
+% $\delta I(u;v):= \lim_{t\searrow 0} \frac1t \big( I(u{+}tv) - I(u)\big)
+% =  \rmD I(u)[v]$.
+% \item[(b)] 
+% Show that $\rmD^\rmG I(u)$ is the Fr\'echet derivative $\rmD^\rmF
+% I(u)$ if additionally 
+% there exist $\theta\in {]0,1]}$ and $C>0$
+% such that $ |\pl_u g(a)-\pl_u g(b)| \leq C_2
+% \big(1{+}|a|{+}|b|\big) ^{1-\theta} |a{-}b|^\theta$ for all $a,b\in
+% \R^m$.
+% \item[(c)] 
+% Now consider the case $X=\rmL^1(\Omega)$ with $\Omega={]0,\ell[}
+% \subset \R^1$ and the functional $I(u)=\int_\Omega g(u(x)) \dd x $
+% with $g(u)=u^3/(1{+}u^2)$. Show that $I$ is Gateaux differentiable at
+% $u=0$ but not Fr\'echet differentiable. 
+% %
+% \end{itemize}
+
+
+\end{document}

@@ -1,0 +1,77 @@
+\documentclass[12pt,a4paper]{article}
+
+
+\input{../header.tex}
+
+\begin{document}
+
+\exerciseSet{7}{December 5, 2022}
+
+\setcounter{AUFGABE}{21}
+
+\aaa{$\rmL^\infty$ bound for supercritical $p > d$.} Construct a constant $C$ depending only on $d\in\N$ and $p \in ]d,\infty[$ such that
+\[
+\forall u \in \rmW^{1,p}(\R^d) :\quad \|u\|_{\rmL^\infty(\R^d)} \leq C\|u\|_{\rmW^{1,p}(\R^d)}.
+\]
+\emph{Hint:} Write $u(x) = u(y) + \int_0^1 \nabla u(x + s(y{-}x))(x{-}y) \dd s$ and average over $y$. 
+
+\aaa{A fundamental lemma for Sobolev functions.} Consider a bounded Lipschitz domain $\Omega \subset \R^d$ and $u \in \rmW^{1,p}(\Omega)$ for some $p \in [1, \infty]$. Assume that $\nabla u = 0$ in $\rmL^p(\Omega)$. Show that there exists a constant $c \in \R$ such that $u(x) = c$ a.e.\ in $\Omega$.
+\\
+\textit{Hint:} Smoothing might be needed and connecting curves between points in $\Omega$.
+
+
+\aaa{Poincar\'e inequality via compactness.}
+Let $\Omega\subset\R^d$ 
+be a bounded domain with $\rmC^1$-boundary,
+and let $\emptyset\neq\Gamma_\rmD\subset\partial\Omega$
+be an open subset of the boundary, i.e., 
+$\Gamma_\rmD=\partial\Omega\cap U$ for some open set $U\subset\R^d$.
+For $p\in\left]1,\infty\right[$,
+let $\rmW^{1,p}_{\Gamma_\rmD}(\Omega)$ 
+be the closure of 
+$\rmC^1_{\Gamma_\rmD}(\overline{\Omega})\coloneqq\set{\phi\in\rmC^1(\overline{\Omega})}{\phi|_{\Gamma_\rmD}=0}$
+in $\rmW^{1,p}(\Omega)$.
+\begin{enumerate}
+\item[(a)]
+Show that if $u\in\rmW^{1,p}_{\Gamma_\rmD}(\Omega)$ with $u(x)=c$ a.e.~for some $c\in\R$,
+then $c=0$.
+\\
+\textit{Hint:}
+Consider $x\in\Gamma_\rmD$ such that a component $n_j$ of the 
+normal vector $n\colon\partial\Omega\to\R^d$ satisfies
+$n_j\neq 0$ in a neighborhood of $x$, 
+and construct a suitable function $\psi$
+such that $\int_\Omega \partial_j(u\psi)=0$. 
+\item[(b)]
+Show that there exists a constant $C>0$
+such that
+\[
+\forall u\in\rmW^{1,p}_{\Gamma_\rmD}(\Omega):
+\quad
+\lVert u \rVert_{\rmL^p(\Omega)}
+\leq C\lVert \nabla u \rVert_{\rmL^p(\Omega)}.
+\]
+\textit{Hint:}
+Assume the opposite to 
+find a suitable sequence
+that is bounded in $\rmW^{1,p}(\Omega)$
+and converges strongly in $\rmL^{p}(\Omega)$.
+\end{enumerate}
+
+
+\aaa{Missing weak lower semicontinuity.} Consider $\Omega =
+B_1(0)\subset \R^3$ and the family of functionals
+\[
+I_{a,p}(u)= \int_\Omega \Big(\frac12|\nabla u(x)|^2 + a |u(x)|^p \Big) \dd x 
+\]
+on $X= \rmH^1(\Omega)=\rmW^{1,2}(\Omega)$, where $a \in \R$ and $p\in {[1,6]}$. 
+\begin{itemize}
+\item[(a)] Show that $I_{a,p}$ is weakly lower semicontinuous if $a\geq 0$ or if  $a<0$ and $p\in {[1,6[}$. 
+
+\item[(b)] For $p=6$ and $a<0$ show that $I_{a,p}$ is strongly continuous. 
+
+\item[(c)] Use the sequence $u_n(x)= c n^\alpha \max\{ 0, 1{-}n^2|x|\}$ for
+suitable $\alpha$ and $c$ to 
+show that $I_{a,p}$ is not weakly lower semicontinuous if $a<0$ and $p=6$. 
+\end{itemize}
+\end{document}
